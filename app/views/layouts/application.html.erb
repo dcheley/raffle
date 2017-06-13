@@ -10,9 +10,9 @@
 
   <body>
     <nav class="navbar bg-primary">
-      <ul class="nav">
+      <ul class="navbar-nav">
         <% if user_signed_in? %>
-          <%= link_to "Home", users_url, class:"nav-item nav-link", style:"color: white;" %>
+          <li class="<%= 'nav-item active' if current_page?('/users') %>"><%= link_to "Home", users_url, class:"nav-link", style:"color: white;" %></li>
           <%= link_to "Profile", user_url(current_user), class:"nav-item nav-link", style:"color: white;" %>
           <%= link_to "Settings", "/users/edit", class:"nav-item nav-link", style:"color: white;" %>
           <%= link_to "Logout", destroy_user_session_url, method: :delete, class:"nav-item nav-link", style:"color: white;" %>
