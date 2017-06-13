@@ -9,16 +9,19 @@
   </head>
 
   <body>
-    <ul class="nav">
-      <% if user_signed_in? %>
-        <li><%= link_to "Home", users_url, class:"nav-link" %></li>
-        <li class="nav-item"><%= link_to "Profile", user_url(current_user), class:"nav-link" %></li>
-        <li class="nav-item"><%= link_to "Settings", "/users/edit", class:"nav-link" %></li>
-        <li class="nav-item"><%= link_to "Logout", destroy_user_session_url, method: :delete, class:"nav-link" %></li>
-      <% else %>
-        <li class="nav-item"><%= link_to "Login", new_user_session_url, class:"nav-link" %></li>
-      <% end %>
-    </ul>
+    <nav class="navbar bg-primary">
+      <ul class="nav">
+        <% if user_signed_in? %>
+          <%= link_to "Home", users_url, class:"nav-item nav-link", style:"color: white;" %>
+          <%= link_to "Profile", user_url(current_user), class:"nav-item nav-link", style:"color: white;" %>
+          <%= link_to "Settings", "/users/edit", class:"nav-item nav-link", style:"color: white;" %>
+          <%= link_to "Logout", destroy_user_session_url, method: :delete, class:"nav-item nav-link", style:"color: white;" %>
+        <% else %>
+          <%= link_to "Login", new_user_session_url, class:"nav-item nav-link", style:"color: white;" %>
+        <% end %>
+      </ul>
+    </nav>
+
     <%= yield %>
   </body>
 </html>
