@@ -11,12 +11,12 @@
   <body>
     <ul class="nav">
       <% if user_signed_in? %>
-        <li><%= link_to "Home", users_url, class:"nav-link"  %></li>
+        <li><%= link_to "Home", users_url, class:"nav-link" %></li>
         <li class="nav-item"><%= link_to "Profile", user_url(current_user), class:"nav-link" %></li>
         <li class="nav-item"><%= link_to "Settings", "/users/edit", class:"nav-link" %></li>
         <li class="nav-item"><%= link_to "Logout", destroy_user_session_url, method: :delete, class:"nav-link" %></li>
       <% else %>
-        <li class="nav-item"><%= link_to "Login", new_user_session_url, class:"nav-link"  %></li>
+        <li class="nav-item"><%= link_to "Login", new_user_session_url, class:"nav-link" %></li>
       <% end %>
     </ul>
     <%= yield %>
