@@ -10,15 +10,16 @@
 
   <body>
     <% if user_signed_in? %>
-      <li>
-        <%= link_to "Logout", destroy_user_session_url, method: :delete %>
-      </li>
+      <li><%= link_to "Home", users_url %></li>
+      <li><%= link_to "Profile", user_url(current_user) %></li>
+      <li><%= link_to "Settings", edit_user_registration_url %></li>
+      <li><%= link_to "Logout", destroy_user_session_url, method: :delete %></li>
     <% else %>
       <li>
         <%= link_to "Login", new_user_session_url %>
       </li>
     <% end %>
-    
+
     <%= yield %>
   </body>
 </html>
