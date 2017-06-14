@@ -3,7 +3,7 @@ var Transactions = React.createClass({
     return {
       transactions: this.props.transactions,
       transaction: {
-        name: '',
+        payee: '',
         email: '',
         status: 2
       },
@@ -24,7 +24,7 @@ var Transactions = React.createClass({
           <table>
             <thead>
               <tr>
-                <th>Name</th>
+                <th>Payee Name</th>
                 <th>Email</th>
                 <th>Status</th>
               </tr>
@@ -33,8 +33,8 @@ var Transactions = React.createClass({
               {transactions}
               <tr>
                 <td>
-                  <input type="text" value={this.state.transaction.name} onChange={this.handleNameChange} /><br />
-                  <span style={{color: 'red'}}>{this.state.errors.name}</span>
+                  <input type="text" value={this.state.transaction.payee} onChange={this.handlePayeeChange} /><br />
+                  <span style={{color: 'red'}}>{this.state.errors.payee}</span>
                 </td>
                 <td>
                   <input value={this.state.transaction.email} type="text" onChange={this.handleEmailChange} /><br />

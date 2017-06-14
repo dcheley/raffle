@@ -3,4 +3,24 @@ class TransactionsController < ApplicationController
     @transactions = Transaction.all
     render component: 'Transactions', props: { transactions: @transactions }
   end
+
+  def create
+    @transaction = Transaction.new(transaction_params)
+      respond_to do |format|
+        format.json do
+        if @transaction.save
+          render :json => @transaction
+        else
+          render :json => { :errors => @transaction.errors.messages }, :status => 422
+        end
+      end
+    end
+  end
+
+  private
+
+  def transaction_params
+    params.require(:transaction).permit(:payee, :email, :ministry, :debt,
+    :quantity, :status)
+  end
 end
