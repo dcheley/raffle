@@ -1,2 +1,24 @@
 @import "bootstrap-sprockets";
 @import 'bootstrap';
+
+.navbar-default {
+  background-color: #0D7381;
+}
+
+.nav-link {
+  color: #F6AE1C !important;
+}
+
+.nav-link:hover {
+  font-weight: bold;
+}
+
+.navbar-default .navbar-nav > .active > a,
+.navbar-default .navbar-nav > .active > a:hover {
+  color: white !important;
+  background-color: #0D7381;
+}
+
+.navbar-toggle {
+  float: left;
+}
