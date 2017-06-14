@@ -11,6 +11,29 @@ var Transactions = React.createClass({
     }
   },
 
+  handleConfirmation() {
+    var that = this;
+    $.ajax({
+      method: 'POST',
+      data: {
+        transaction: that.state.transaction,
+      },
+      url: '/transactions.json'
+      success: function(res) {
+        var newTransactionList.push(res);
+        that.setState({
+          transactions: newTransactionList,
+          transaction: {
+            payee: '',
+            email: '',
+            status: 3
+          },
+          errors: {}
+        });
+      }
+    });
+  },
+
   render() {
     transactions = this.props.transactions.map( function(transaction) {
       return (
