@@ -9,15 +9,15 @@
   </head>
 
   <body>
-    <nav class="navbar bg-primary">
-      <ul class="nav">
+    <nav class="navbar navbar-default">
+      <ul class="nav navbar-nav">
         <% if user_signed_in? %>
-          <li class="<%= 'nav-item active' if current_page?('/users') %>"><%= link_to "Home", users_url, class:"nav-link", style:"color: white;" %></li>
-          <%= link_to "Profile", user_url(current_user), class:"nav-item nav-link", style:"color: white;" %>
-          <%= link_to "Settings", "/users/edit", class:"nav-item nav-link", style:"color: white;" %>
-          <%= link_to "Logout", destroy_user_session_url, method: :delete, class:"nav-item nav-link", style:"color: white;" %>
+          <li class="<%= 'active' if current_page?('/users') %>"><%= link_to "Home", users_url, class:"nav-link" %></li>
+          <li class='<%= "active" if current_page?("/users/#{current_user.id}") %>'><%= link_to "Profile", user_url(current_user), class:"nav-link" %></li>
+          <li class='<%= 'active' if current_page?('/users/edit')%>'><%= link_to "Settings", "/users/edit", class:"nav-link" %></li>
+          <li><%= link_to "Logout", destroy_user_session_url, method: :delete, class:"nav-link" %></li>
         <% else %>
-          <%= link_to "Login", new_user_session_url, class:"nav-item nav-link", style:"color: white;" %>
+          <li class="<%= 'active' if current_page?('/users/sign_in') %>"><%= link_to "Login", new_user_session_url, class:"nav-link" %></li>
         <% end %>
       </ul>
     </nav>
