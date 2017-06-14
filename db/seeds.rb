@@ -10,3 +10,5 @@ User.create([{ email: "email@one.com", password: "123456"},
             { email: "email@three.com", password: "123456"},
             { email: "email@four.com", password: "123456"},
             { email: "email@five.com", password: "123456"}])
+
+Transaction.create([{ payee: "John", quantity: 5, debt: 20.20, email: "test@email.com", ministry: "MEDG" }])
