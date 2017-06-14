@@ -11,6 +11,24 @@ var Transactions = React.createClass({
     }
   },
 
+  handlePayeeChange(e) {
+    var newTransaction = this.state.transaction;
+    newTransaction.payee = e.target.value;
+    this.setState({transaction: newTransaction});
+  },
+
+  handleEmailChange(e) {
+    var newTransaction = this.state.transaction;
+    newTransaction.email = e.target.value;
+    this.setState({transaction: newTransaction});
+  },
+
+  handleStatusChange(e) {
+    var newTransaction = this.state.transaction;
+    newTransaction.status = e.target.value;
+    this.setState({transaction: newTransaction});
+  },
+
   handleConfirmation() {
     var that = this;
     $.ajax({
