@@ -10,7 +10,7 @@
 
   <body>
     <nav class="navbar bg-primary">
-      <ul class="navbar-nav">
+      <ul class="nav">
         <% if user_signed_in? %>
           <li class="<%= 'nav-item active' if current_page?('/users') %>"><%= link_to "Home", users_url, class:"nav-link", style:"color: white;" %></li>
           <%= link_to "Profile", user_url(current_user), class:"nav-item nav-link", style:"color: white;" %>
