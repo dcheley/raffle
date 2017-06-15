@@ -30,6 +30,13 @@ class TransactionsController < ApplicationController
     end
   end
 
+  def destroy
+    Transaction.find(params[:id]).destroy
+    respond_to do |format|
+      format.json { render :json => {}, :status => :no_content }
+    end
+  end
+
   private
 
   def transaction_params
