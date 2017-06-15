@@ -36,7 +36,7 @@ var Transactions = React.createClass({
       data: {
         transaction: that.state.transaction,
       },
-      url: '/transactions.json'
+      url: '/transactions.json',
       success: function(res) {
         var newTransactionList.push(res);
         that.setState({
@@ -48,6 +48,9 @@ var Transactions = React.createClass({
           },
           errors: {}
         });
+      },
+      error: function(res) {
+        that.setState({errors: res.responseJSON.errors})
       }
     });
   },
