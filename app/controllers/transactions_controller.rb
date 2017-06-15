@@ -1,7 +1,12 @@
 class TransactionsController < ApplicationController
+  before_action :load_transaction, only: [:new, :edit]
+  
   def index
     @transactions = Transaction.all
     render component: 'Transactions', props: { transactions: @transactions }
+  end
+
+  def new
   end
 
   def create
@@ -15,6 +20,9 @@ class TransactionsController < ApplicationController
         end
       end
     end
+  end
+
+  def edit
   end
 
   def update
@@ -38,6 +46,10 @@ class TransactionsController < ApplicationController
   end
 
   private
+
+  def load_transaction
+    @transaction = Transaction.find(params[:id])
+  end
 
   def transaction_params
     params.require(:transaction).permit(:payee, :email, :ministry, :debt,
