@@ -1,6 +1,6 @@
 class TransactionsController < ApplicationController
-  before_action :load_transaction, only: [:new, :edit]
-  
+  before_action :load_transaction, only: [:new, :edit, :destroy]
+
   def index
     @transactions = Transaction.all
     render component: 'Transactions', props: { transactions: @transactions }
@@ -11,14 +11,10 @@ class TransactionsController < ApplicationController
 
   def create
     @transaction = Transaction.new(transaction_params)
-    respond_to do |format|
-      format.json do
-        if @transaction.save
-          render :json => @transaction
-        else
-          render :json => { :errors => @transaction.errors.messages }, :status => 422
-        end
-      end
+    if @transaction.save
+      redirect_to '/transactions', notice: 'Transaction Added'
+    else
+      render :new
     end
   end
 
@@ -27,22 +23,16 @@ class TransactionsController < ApplicationController
 
   def update
     @transaction = Transaction.find(params[:id])
-    respond_to do |format|
-      format.json do
-        if @transaction.update(transaction_params)
-          render :json => @transaction
-        else
-          render :json => { :errors => @transaction.errors.messages }, :status => 422
-        end
-      end
+    if @transaction.update_attributes(transaction_params)
+      redirect_to '/transactions', notice: 'Transaction Info Updated'
+    else
+      render :edit
     end
   end
 
   def destroy
-    Transaction.find(params[:id]).destroy
-    respond_to do |format|
-      format.json { render :json => {}, :status => :no_content }
-    end
+    @transaction.destroy
+    redirect_to '/transactions', notice: 'Transaction Deleted'
   end
 
   private
