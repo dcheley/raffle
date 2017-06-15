@@ -5,7 +5,7 @@ var Transactions = React.createClass({
       transaction: {
         payee: '',
         email: '',
-        status: 2
+        status: 1
       },
       errors: {}
     }
@@ -44,7 +44,7 @@ var Transactions = React.createClass({
           transaction: {
             payee: '',
             email: '',
-            status: 3
+            status: 1
           },
           errors: {}
         });
