@@ -17,6 +17,19 @@ class TransactionsController < ApplicationController
     end
   end
 
+  def update
+    @transaction = Transaction.find(params[:id])
+    respond_to do |format|
+      format.json do
+        if @transaction.update(transaction_params)
+          render :json => @transaction
+        else
+          render :json => { :errors => @transaction.errors.messages }, :status => 422
+        end
+      end
+    end
+  end
+
   private
 
   def transaction_params
