@@ -6,8 +6,8 @@ class TransactionsController < ApplicationController
 
   def create
     @transaction = Transaction.new(transaction_params)
-      respond_to do |format|
-        format.json do
+    respond_to do |format|
+      format.json do
         if @transaction.save
           render :json => @transaction
         else
@@ -21,6 +21,6 @@ class TransactionsController < ApplicationController
 
   def transaction_params
     params.require(:transaction).permit(:payee, :email, :ministry, :debt,
-    :quantity, :status)
+    :quantity, :status, :user_id)
   end
 end
