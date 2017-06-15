@@ -2,8 +2,7 @@ class TransactionsController < ApplicationController
   before_action :load_transaction, only: [:new, :edit, :destroy]
 
   def index
-    @transactions = Transaction.all
-    render component: 'Transactions', props: { transactions: @transactions }
+    @transactions = Transaction.all.order('created_at DSC')
   end
 
   def new
