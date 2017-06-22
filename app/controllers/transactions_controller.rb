@@ -21,7 +21,6 @@ class TransactionsController < ApplicationController
   end
 
   def update
-    @transaction = Transaction.find(params[:id])
     if @transaction.update_attributes(transaction_params)
       redirect_to '/transactions', notice: 'Transaction Info Updated'
     else
