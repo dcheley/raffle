@@ -10,5 +10,8 @@ Rails.application.routes.draw do
   end
 
   resources :users, only: [:index, :show]
-  resources :transactions, only: [:index, :new, :create, :edit, :update, :destroy]
+
+  resources :users do
+    resources :transactions, only: [:new, :create, :edit, :update, :destroy]
+  end
 end
