@@ -53,7 +53,8 @@ ul {
   font-weight: bold;
 }
 
-#error_explanation li {
+#error_explanation li,
+.error-msg {
   color: #b71c1c;
 }
 
