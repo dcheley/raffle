@@ -1,6 +1,10 @@
 @import "bootstrap-sprockets";
 @import 'bootstrap';
 
+a,
+a:hover {
+  text-decoration: none;
+}
 .navbar-default {
   background-color: #0D7381;
 }
@@ -41,4 +45,27 @@
   float: right;
   margin-bottom: 0;
   font-weight: bold;
+}
+
+.submit,
+.cancel {
+  text-transform: uppercase;
+  color: white;
+  padding: 10px;
+  border-radius: 32px;
+  border: none;
+}
+
+.submit {
+  background-color: #F6AE1C;
+}
+
+.cancel {
+  background-color: #b71c1c;
+}
+
+.submit:hover,
+.cancel:hover {
+  opacity: 0.8;
+  color: white;
 }
