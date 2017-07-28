@@ -5,6 +5,12 @@ a,
 a:hover {
   text-decoration: none;
 }
+
+ul {
+  list-style: none;
+  padding: 0;
+}
+
 .navbar-default {
   background-color: #0D7381;
 }
@@ -45,6 +51,15 @@ a:hover {
   float: right;
   margin-bottom: 0;
   font-weight: bold;
+}
+
+#error_explanation li {
+  color: #b71c1c;
+}
+
+#error_explanation h2 {
+  font-size: 20px;
+  margin-top: 0;
 }
 
 .submit,
