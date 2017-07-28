@@ -23,8 +23,18 @@
     </div><br/>
 
     <div class="field">
+      <%= f.label :ministry, class:"field-label" %>
+      <%= f.text_field :ministry, placeholder:"MEDG", autofocus: true, class:"field-input" %>
+    </div><br/>
+
+    <div class="field">
       <%= f.label :quantity, "# of tickets", class:"field-label" %>
       <%= f.number_field :quantity, placeholder:"2", autofocus: true, class:"field-input" %>
+    </div><br/>
+
+    <div class="field">
+      <%= f.label :debt, "$ amount owed", class:"field-label" %>
+      <%= f.number_field :debt, class:"field-input", step: 0.01 %>
     </div><br/>
 
     <div class="field">
