@@ -25,16 +25,15 @@
               <li class='<%= 'active' if current_page?('/users/edit')%>'><%= link_to "Settings", "/users/edit", class:"nav-link" %></li>
               <li><%= link_to "Logout", destroy_user_session_url, method: :delete, class:"nav-link" %></li>
             </ul>
+            <% if flash[:notice] %>
+              <div class="alert"><%= flash[:notice] %></div>
+            <% end %>
           </div>
         </div>
       </nav>
     <% end %>
 
     <div class="container">
-      <% if flash[:notice] %>
-        <div class="alert"><%= flash[:notice] %></div>
-      <% end %>
-
       <%= yield %>
     </div>
   </body>
