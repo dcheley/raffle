@@ -20,14 +20,13 @@
   </div>
 
   <div class="field">
-    <%= f.label :payee, class:"field-label" %>
-    <%= f.text_field :payee, placeholder:"Firstname Lastname", autofocus: true, class:"field-input" %>
+    <%= f.label :quantity, "# of tickets", class:"field-label" %>
+    <%= f.number_field :quantity, placeholder:"2", autofocus: true, class:"field-input" %>
   </div>
+
   <div class="field">
-    <%= f.label :payee, class:"field-label" %>
-    <%= f.text_field :payee, placeholder:"Firstname Lastname", autofocus: true, class:"field-input" %>
+    <%= f.label :status, "Have the tickets been paid for?", class:"field-label" %>
+    <%= f.check_box :status, class:"field-input" %>
   </div>
-  <div class="field">
-    <%= f.label :payee, class:"field-label" %>
-    <%= f.text_field :payee, placeholder:"Firstname Lastname", autofocus: true, class:"field-input" %>
-  </div>
+
+  <%= f.hidden_field :user_id, value: @user.id %>
