@@ -8,12 +8,13 @@ class TransactionsController < ApplicationController
     @transaction = Transaction.new(transaction_params)
     @user = transaction.user
     respond_to do |format|
-    if @transaction.save
-      format.html { redirect_to user_url(@user), notice:'Transaction Added' }
-      format.json { render json: @user, status: :created, location: @user }
-    else
-      format.html { render user_url(@user) }
-      format.json { render json: @transaction.errors, status: :unprocessable_entity }
+      if @transaction.save
+        format.html { redirect_to user_url(@user), notice:'Transaction Added' }
+        format.json { render json: @user, status: :created, location: @user }
+      else
+        format.html { render user_url(@user) }
+        format.json { render json: @transaction.errors, status: :unprocessable_entity }
+      end
     end
   end
 
