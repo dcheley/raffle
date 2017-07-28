@@ -1,7 +1,7 @@
 <div class="left-align-wrap">
   <h2>Add transaction</h2><br/>
 
-  <%= form_for(@transaction, url: 'transactions#create') do |f| %>
+  <%= form_for([@user, @transaction]) do |f| %>
     <% if @transaction.errors.any? %>
       <h4 class="error-header"><%= pluralize(@transaction.errors.count, "error") %> occurred!</h4>
 

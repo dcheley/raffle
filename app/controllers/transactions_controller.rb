@@ -1,12 +1,9 @@
 class TransactionsController < ApplicationController
-  before_action :load_transaction, only: [:new, :edit, :destroy]
-
-  def new
-  end
+  before_action :load_transaction, only: [:edit, :destroy]
 
   def create
     @transaction = Transaction.new(transaction_params)
-    @user = transaction.user
+    @user = @transaction.user
     respond_to do |format|
       if @transaction.save
         format.html { redirect_to user_url(@user), notice:'Transaction Added' }
