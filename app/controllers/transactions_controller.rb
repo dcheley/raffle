@@ -6,10 +6,14 @@ class TransactionsController < ApplicationController
 
   def create
     @transaction = Transaction.new(transaction_params)
+    @user = transaction.user
+    respond_to do |format|
     if @transaction.save
-      redirect_to '/transactions', notice: 'Transaction Added'
+      format.html { redirect_to user_url(@user), notice:'Transaction Added' }
+      format.json { render json: @user, status: :created, location: @user }
     else
-      render :new
+      format.html { render user_url(@user) }
+      format.json { render json: @transaction.errors, status: :unprocessable_entity }
     end
   end
 
@@ -37,6 +41,6 @@ class TransactionsController < ApplicationController
 
   def transaction_params
     params.require(:transaction).permit(:payee, :email, :ministry, :debt,
-    :quantity, :status, :user_id)
+    :quantity, :status, :user_id, :ticket_number)
   end
 end
