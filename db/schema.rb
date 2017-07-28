@@ -10,15 +10,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170727220400) do
+ActiveRecord::Schema.define(version: 20170728153733) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "transactions", force: :cascade do |t|
     t.string "payee"
-    t.float "quantity"
-    t.float "debt"
+    t.decimal "quantity", precision: 8, scale: 2
+    t.decimal "debt", precision: 8, scale: 2
     t.string "email"
     t.string "ministry"
     t.integer "status"

@@ -1,0 +1,33 @@
+<%= form_for(@transaction) do |f| %>
+  <% if @transaction.errors.any? %>
+    <h4 class="error-header"><%= pluralize(@transaction.errors.count, "error") %> occurred!</h4>
+
+    <ul class="error-list">
+      <% @transaction.errors.full_messages.each do |msg| %>
+        <li class="error-msg"><%= msg %></li>
+      <% end %>
+    </ul>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :payee, class:"field-label" %>
+    <%= f.text_field :payee, placeholder:"Firstname Lastname", autofocus: true, class:"field-input" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :payee, class:"field-label" %>
+    <%= f.text_field :payee, placeholder:"Firstname Lastname", autofocus: true, class:"field-input" %>
+  </div>
+  
+  <div class="field">
+    <%= f.label :payee, class:"field-label" %>
+    <%= f.text_field :payee, placeholder:"Firstname Lastname", autofocus: true, class:"field-input" %>
+  </div>
+  <div class="field">
+    <%= f.label :payee, class:"field-label" %>
+    <%= f.text_field :payee, placeholder:"Firstname Lastname", autofocus: true, class:"field-input" %>
+  </div>
+  <div class="field">
+    <%= f.label :payee, class:"field-label" %>
+    <%= f.text_field :payee, placeholder:"Firstname Lastname", autofocus: true, class:"field-input" %>
+  </div>
