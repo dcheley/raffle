@@ -15,6 +15,10 @@ h2 {
   font-weight: bold;
 }
 
+p {
+  font-size: 16px;
+}
+
 .navbar-default {
   background-color: #0D7381;
 }
@@ -89,4 +93,8 @@ h2 {
 .cancel:hover {
   opacity: 0.8;
   color: white;
+}
+
+#italic {
+  font-style: italic;
 }

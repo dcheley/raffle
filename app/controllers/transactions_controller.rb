@@ -4,6 +4,7 @@ class TransactionsController < ApplicationController
   def create
     @transaction = Transaction.new(transaction_params)
     @user = @transaction.user
+    @transactions = @user.transactions
     respond_to do |format|
       if @transaction.save
         format.html { redirect_to user_url(@user), notice:'Transaction Added' }

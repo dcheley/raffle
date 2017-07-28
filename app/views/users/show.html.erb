@@ -48,4 +48,18 @@
       <%= f.submit "ADD", class:"submit" %>
     </div>
   <% end %>
+
+  <% @transactions.each_with_index do |t, i| %>
+    <h4 id="italic">Transaction <%= i + 1 %></h4>
+    <p><b>Payee:</b> <%= t.payee %></p>
+    <p><b>Email:</b> <%= t.email %></p>
+    <p><b>Ministry:</b> <%= t.ministry %></p>
+    <p><b>Quantity purchased:</b> <%= t.quantity %></p>
+    <p><b>$ owed:</b> <%= t.debt %></p>
+    <p><b>Raffle ticket #:</b> <%= t.ticket_number %></p>
+    <p><b>Status:</b>
+      <!-- use if helper to display check or x based on status -->
+    </p>
+
+  <% end %>
 </div>
