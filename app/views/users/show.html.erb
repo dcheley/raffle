@@ -93,9 +93,12 @@
         <span class="glyphicon glyphicon-ok" style="color: #F6AE1C;"></span>
       <% end %>
     </p>
-    <%= link_to 'Edit', edit_transaction_url(t), class:'link' %>
-    <%= link_to user_transaction_url(user_id: current_user.id, id: t.id), method: :delete, data: { confirm: "You sure?" } do %>
-      <span class="glyphicon glyphicon-trash" id="red"></span>
-    <% end %>
+
+    <div class="column" style="border-right: none;">
+      <%= link_to 'Edit', edit_transaction_url(t), class:'row-link' %>
+      <%= link_to user_transaction_url(user_id: current_user.id, id: t.id), method: :delete, data: { confirm: "You sure?" }, class:'row-link' do %>
+        <span class="glyphicon glyphicon-trash" id="red"></span>
+      <% end %>
+    </div>
   </div>
 <% end %>
