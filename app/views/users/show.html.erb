@@ -59,6 +59,11 @@
     <p><b>Raffle ticket #:</b> <%= t.ticket_number %></p>
     <p><b>Status:</b>
       <!-- use if helper to display check or x based on status -->
+      <% if @user.status == nil %>
+        <span class="glyphicon glyphicon-ok"></span>
+      <% else %>
+        <span class="glyphicon glyphicon-remove"></span>
+      <% end %>
     </p>
     <!-- Edit & Delete button -->
 
