@@ -93,6 +93,8 @@
         <span class="glyphicon glyphicon-ok" style="color: #F6AE1C;"></span>
       <% end %>
     </p>
-    <!-- Edit & Delete button -->
+    <%= link_to 'Edit', edit_transaction_url(t), class:'link' %>
+    <%= button_to 'Delete', user_transaction_url(t), method: :delete, data: { confirm: "You sure?" },
+      class:'delete' %>
   </div>
 <% end %>

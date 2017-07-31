@@ -10,8 +10,9 @@ Rails.application.routes.draw do
   end
 
   resources :users, only: [:index, :show]
+  resources :transactions, only: [:edit, :update]
 
   resources :users do
-    resources :transactions, only: [:create, :update, :destroy]
+    resources :transactions, only: [:create, :destroy]
   end
 end

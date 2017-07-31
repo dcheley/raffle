@@ -1,5 +1,5 @@
 class TransactionsController < ApplicationController
-  before_action :load_transaction, only: [:edit, :destroy]
+  before_action :load_transaction, only: [:edit, :update, :destroy]
 
   def create
     @transaction = Transaction.new(transaction_params)
@@ -18,11 +18,12 @@ class TransactionsController < ApplicationController
   end
 
   def edit
+    @user = current_user
   end
 
   def update
     if @transaction.update_attributes(transaction_params)
-      redirect_to '/transactions', notice: 'Transaction Info Updated'
+      redirect_to user_url(current_user), notice: 'Transaction info updated'
     else
       render :edit
     end
@@ -30,7 +31,7 @@ class TransactionsController < ApplicationController
 
   def destroy
     @transaction.destroy
-    redirect_to '/transactions', notice: 'Transaction Deleted'
+    redirect_to user_url(current_user), notice: 'Transaction deleted'
   end
 
   private

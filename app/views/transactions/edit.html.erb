@@ -1,0 +1,69 @@
+<div class="row">
+  <h2>Edit transaction details</h2><br/>
+
+  <%= form_for(@transaction) do |f| %>
+    <% if @transaction.errors.any? %>
+      <h4 class="error-header"><%= pluralize(@transaction.errors.count, "error") %> occurred!</h4>
+
+      <ul class="error-list">
+        <% @transaction.errors.full_messages.each do |msg| %>
+          <li class="error-msg"><%= msg %></li>
+        <% end %>
+      </ul>
+    <% end %>
+
+    <div class="row-field">
+      <%= f.label :payee, class:"field-label" %>
+    </div>
+
+    <div class="row-field">
+      <%= f.label :email, class:"field-label" %>
+    </div>
+
+    <div class="row-field">
+      <%= f.label :ministry, class:"field-label" %>
+    </div>
+
+    <div class="row-field">
+      <%= f.label :quantity, "# of tickets", class:"field-label" %>
+    </div>
+
+    <div class="row-field">
+      <%= f.label :debt, "$ amount owed", class:"field-label" %>
+    </div>
+
+    <div class="row-field">
+      <%= f.label :status, "Tickets paid for?", class:"field-label" %>
+    </div>
+</div>
+
+<div class="row">
+    <div class="row-field">
+      <%= f.text_field :payee, placeholder:"Firstname Lastname", autofocus: true, class:"field-input" %>
+    </div>
+
+    <div class="row-field">
+      <%= f.text_field :email, placeholder:"example@address.com", autofocus: true, class:"field-input" %>
+    </div>
+
+    <div class="row-field">
+      <%= f.text_field :ministry, placeholder:"MEDG", autofocus: true, class:"field-input" %>
+    </div>
+
+    <div class="row-field">
+      <%= f.number_field :quantity, placeholder:"2", autofocus: true, class:"field-input" %>
+    </div>
+
+    <div class="row-field">
+      <%= f.number_field :debt, placeholder:"3.00", class:"field-input", step: 0.01 %>
+    </div>
+
+    <div class="row-field" style="margin-top: 10px;">
+      <%= f.check_box :status, class:"field-input" %>
+    </div>
+
+    <div class="button-wrap">
+      <%= f.submit "SAVE", class:"submit" %>
+    </div>
+  <% end %>
+</div>
