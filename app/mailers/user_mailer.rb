@@ -1,8 +1,8 @@
 class UserMailer < ApplicationMailer
-  def payment_confirmation(email)
-    @transaction.payee = email
+  def payment_confirmation(transaction)
+    @transaction = transaction
 
     @url = 'http://ops-raffle.herokuapp.com'
-    mail (to: email, subject: 'OPS Walk & Run Ticket Confirmation')
+    mail( to: @transaction.email, subject: 'OPS Walk & Run Ticket Confirmation')
   end
 end

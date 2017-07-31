@@ -7,8 +7,12 @@ class TransactionsController < ApplicationController
     @user = @transaction.user
     @transactions = @user.transactions
     respond_to do |format|
-      if @transaction.save
-        format.html { redirect_to user_url(@user), notice:'Transaction Added' }
+      if @transaction.save && @transaction.status == 1
+        UserMailer.payment_confirmation(@transaction).deliver_later
+        format.html { redirect_to user_url(@user), notice:'Transaction added & ticket sent' }
+        format.json { render json: @user, status: :created, location: @user }
+      elsif @transaction.save && @transaction.status != 1
+        format.html { redirect_to user_url(@user), notice:'Transaction added' }
         format.json { render json: @user, status: :created, location: @user }
       else
         format.html { render 'users/show' }
