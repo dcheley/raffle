@@ -3,6 +3,7 @@ class TransactionsController < ApplicationController
 
   def create
     @transaction = Transaction.new(transaction_params)
+    @transaction.ticket_number = rand(100000..999999)
     @user = @transaction.user
     @transactions = @user.transactions
     respond_to do |format|

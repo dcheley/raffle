@@ -48,24 +48,25 @@
       <%= f.submit "ADD", class:"submit" %>
     </div>
   <% end %>
+</div>
 
-  <% @transactions.each_with_index do |t, i| %>
-    <h4 id="italic">Transaction <%= i + 1 %></h4>
-    <p><b>Payee:</b> <%= t.payee %></p>
-    <p><b>Email:</b> <%= t.email %></p>
-    <p><b>Ministry:</b> <%= t.ministry %></p>
-    <p><b>Quantity purchased:</b> <%= t.quantity %></p>
-    <p><b>$ owed:</b> <%= t.debt %></p>
-    <p><b>Raffle ticket #:</b> <%= t.ticket_number %></p>
-    <p>
+<% @transactions.each_with_index do |t, i| %>
+  <div class="row">
+    <h4 class="column" id="italic">Transaction <%= i + 1 %></h4>
+    <p class="column"><b>Payee:</b> <%= t.payee %></p>
+    <p class="column"><b>Email:</b> <%= t.email %></p>
+    <p class="column"><b>Ministry:</b> <%= t.ministry %></p>
+    <p class="column"><b>Quantity purchased:</b> <%= t.quantity %></p>
+    <p class="column"><b>$ owed:</b> <%= t.debt %></p>
+    <p class="column"><b>Raffle ticket #:</b> <%= t.ticket_number %></p>
+    <p class="column">
       <b>Status:</b>
-      <% if @user.status != true %>
-        <span class="glyphicon glyphicon-ok"></span>
+      <% if t.status != true %>
+        <span class="glyphicon glyphicon-remove" style="color: #b71c1c;"></span>
       <% else %>
-        <span class="glyphicon glyphicon-remove"></span>
+        <span class="glyphicon glyphicon-ok" style="color: #F6AE1C;"></span>
       <% end %>
     </p>
     <!-- Edit & Delete button -->
-
-  <% end %>
-</div>
+  </div>
+<% end %>
