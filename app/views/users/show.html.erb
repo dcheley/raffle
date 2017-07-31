@@ -85,7 +85,7 @@
     <p class="column"><b>Raffle ticket #:</b> <%= t.ticket_number %></p>
     <p class="column">
       <b>Status:</b>
-      <% if t.status != true %>
+      <% if t.status != 1 %>
         <span class="glyphicon glyphicon-remove" style="color: #b71c1c;"></span>
       <% else %>
         <span class="glyphicon glyphicon-ok" style="color: #F6AE1C;"></span>
