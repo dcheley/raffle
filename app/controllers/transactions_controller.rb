@@ -26,10 +26,18 @@ class TransactionsController < ApplicationController
   end
 
   def update
-    if @transaction.update_attributes(transaction_params)
-      redirect_to user_url(current_user), notice: 'Transaction info updated'
-    else
-      render :edit
+    respond_to do |format|
+      if @transaction.update_attributes(transaction_params) && @transaction.status == 1
+        UserMailer.payment_confirmation(@transaction).deliver_later
+        format.html { redirect_to user_url(current_user), notice: 'Transaction info updated & confirmation email sent to payee' }
+        format.json { render json: current_user, status: :created, location: current_user }
+      elsif @transaction.update_attributes(transaction_params) && @transaction.status != 1
+        format.html { redirect_to user_url(current_user), notice: 'Transaction info updated' }
+        format.json { render json: current_user, status: :created, location: current_user }
+      else
+        format.html { render :edit }
+        format.json { render json: @transaction.errors, status: :unprocessable_entity }
+      end
     end
   end
 
