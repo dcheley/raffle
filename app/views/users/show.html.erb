@@ -94,7 +94,8 @@
       <% end %>
     </p>
     <%= link_to 'Edit', edit_transaction_url(t), class:'link' %>
-    <%= button_to 'Delete', user_transaction_url(t), method: :delete, data: { confirm: "You sure?" },
-      class:'delete' %>
+    <%= link_to user_transaction_url(user_id: current_user.id, id: t.id), method: :delete, data: { confirm: "You sure?" } do %>
+      <span class="glyphicon glyphicon-trash" id="red"></span>
+    <% end %>
   </div>
 <% end %>

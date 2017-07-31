@@ -129,8 +129,17 @@ label {
   background-color: #b71c1c;
 }
 
+#red {
+  color: #b71c1c;
+}
+
+#red:hover {
+  color: #e53935;
+}
+
 .submit:hover,
-.cancel:hover {
+.cancel:hover,
+ {
   opacity: 0.8;
   color: white;
 }
