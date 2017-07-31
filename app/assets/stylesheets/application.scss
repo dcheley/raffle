@@ -57,6 +57,7 @@ p {
   border-bottom: solid;
   border-width: 3px;
   border-color: #0D7381;
+  text-align: left;
 }
 
 .column {
@@ -67,6 +68,22 @@ p {
   border-right: solid;
   border-width: 3px;
   border-color: #0D7381;
+}
+
+.field {
+  float: left;
+  display: inline;
+  width: 15%;
+}
+
+.field input {
+  padding: 5px;
+  margin-top: 5px;
+  width: 140px;
+}
+
+label {
+  margin-top: 5px;
 }
 
 .alert {
@@ -88,6 +105,11 @@ p {
 #error_explanation h4 {
   font-size: 20px;
   margin-top: 0;
+}
+
+.button-wrap {
+  text-align: center;
+  margin-bottom: 15px;
 }
 
 .submit,
@@ -115,4 +137,9 @@ p {
 
 #italic {
   font-style: italic;
+}
+
+.left-title {
+  text-align: left;
+  margin-top: 30px;
 }
