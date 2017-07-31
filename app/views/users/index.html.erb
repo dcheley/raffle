@@ -1,4 +1,6 @@
-<% @users.each do |u| %>
-  <p><%= link_to u.email, user_url(u), class:"link" %></p>
-  <p><%= "#{u.transactions.where(status: 1).count}" + "/" + "#{u.transactions.count}" %></p>
-<% end %>
+<div class="left-align-wrap">
+  <% @users.each do |u| %>
+    <p><%= link_to u.email, user_url(u), class:"link" %></p>
+    <p><b><%= "#{u.transactions.where(status: 1).count}" + "/" + "#{u.transactions.count}" %></b> transactions paid</p>
+  <% end %>
+</div>
