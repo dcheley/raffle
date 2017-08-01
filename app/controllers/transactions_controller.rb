@@ -3,7 +3,9 @@ class TransactionsController < ApplicationController
 
   def create
     @transaction = Transaction.new(transaction_params)
-    @transaction.quantity.times.uniq { @transaction.ticket_numbers << rand(100000..999999) }
+    if @transaction.save
+      @transaction.quantity.times.uniq { @transaction.ticket_numbers << rand(100000..999999) }
+    end
     @user = @transaction.user
     @transactions = @user.transactions
     respond_to do |format|
@@ -26,6 +28,9 @@ class TransactionsController < ApplicationController
   end
 
   def update
+    if @transaction.update_attributes(transaction_params)
+      update_ticket_numbers
+    end
     respond_to do |format|
       if @transaction.update_attributes(transaction_params) && @transaction.status == 1
         UserMailer.payment_confirmation(@transaction).deliver_later
@@ -55,5 +60,15 @@ class TransactionsController < ApplicationController
   def transaction_params
     params.require(:transaction).permit(:payee, :email, :ministry, :debt,
     :quantity, :status, :user_id, :ticket_numbers)
+  end
+
+  def update_ticket_numbers
+    if @transaction.ticket_numbers.length < @transaction.quantity
+      i = @transaction.quantity - @transaction.ticket_numbers.length
+      i.times.uniq { @transaction.ticket_numbers << rand(100000..999999) }
+    elsif @transaction.ticket_numbers.length > @transaction.quantity
+      i = @transaction.ticket_numbers.length - @transaction.quantity
+      i.times { @transaction.ticket_numbers.pop }
+    end
   end
 end
