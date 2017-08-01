@@ -1,8 +1,10 @@
 <% if current_user == @user %>
-  <div class="row">
-    <h2>Add transaction</h2><br/>
+  <div class="clean-row">
+    <h2 >Add transaction</h2>
+  </div>
 
-    <%= form_for([@user, @transaction]) do |f| %>
+  <%= form_for([@user, @transaction]) do |f| %>
+    <div class="row">
       <% if @transaction.errors.any? %>
         <h4 class="error-header"><%= pluralize(@transaction.errors.count, "error") %> occurred!</h4>
 
@@ -36,9 +38,9 @@
       <div class="row-field">
         <%= f.label :status, "Tickets paid for?", class:"field-label" %>
       </div>
-  </div>
+    </div>
 
-  <div class="row">
+    <div class="row">
       <div class="row-field">
         <%= f.text_field :payee, placeholder:"Firstname Lastname", autofocus: true, class:"field-input" %>
       </div>
@@ -68,11 +70,11 @@
       <div class="button-wrap">
         <%= f.submit "ADD", class:"submit" %>
       </div>
-    <% end %>
-  </div>
+    </div>
+  <% end %>
 <% end %>
 
-<div class="row" style="border-bottom: none; margin-bottom: 0;">
+<div class="clean-row">
   <% if current_user != @user %>
     <h2 class="left-title"><%= @user.email.capitalize %>'s Current transactions</h2><br/>
   <% else %>

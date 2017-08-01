@@ -1,7 +1,9 @@
-<div class="row">
-  <h2>Edit transaction details</h2><br/>
+<div class="clean-row">
+  <h2>Edit transaction details</h2>
+</div>
 
-  <%= form_for(@transaction) do |f| %>
+<%= form_for(@transaction) do |f| %>
+  <div class="row">
     <% if @transaction.errors.any? %>
       <h4 class="error-header"><%= pluralize(@transaction.errors.count, "error") %> occurred!</h4>
 
@@ -35,9 +37,9 @@
     <div class="row-field">
       <%= f.label :status, "Tickets paid for?", class:"field-label" %>
     </div>
-</div>
+  </div>
 
-<div class="row">
+  <div class="row">
     <div class="row-field">
       <%= f.text_field :payee, placeholder:"Firstname Lastname", autofocus: true, class:"field-input" %>
     </div>
@@ -65,5 +67,5 @@
     <div class="button-wrap">
       <%= f.submit "SAVE", class:"submit" %>
     </div>
-  <% end %>
-</div>
+  </div>
+<% end %>
