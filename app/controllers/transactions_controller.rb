@@ -3,7 +3,7 @@ class TransactionsController < ApplicationController
 
   def create
     @transaction = Transaction.new(transaction_params)
-    @transaction.ticket_number = rand(100000..999999)
+    @transaction.quantity.times.uniq { @transaction.ticket_numbers << rand(100000..999999) }
     @user = @transaction.user
     @transactions = @user.transactions
     respond_to do |format|
@@ -54,6 +54,6 @@ class TransactionsController < ApplicationController
 
   def transaction_params
     params.require(:transaction).permit(:payee, :email, :ministry, :debt,
-    :quantity, :status, :user_id, :ticket_number)
+    :quantity, :status, :user_id, :ticket_numbers)
   end
 end
