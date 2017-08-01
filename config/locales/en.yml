@@ -30,4 +30,21 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 en:
-  hello: "Hello world"
+  activerecord:
+    attributes:
+      transaction:
+        payee: "Payee name"
+        email: "Contact email"
+        quantity: "Quantity purchased"
+    errors:
+      models:
+        transaction:
+          attributes:
+            email:
+              invalid: "is not a valid email address"
+            quantity:
+              not_a_number: "must be at least 1"
+              numericality: "must be at least 1"
+            debt:
+              not_a_number: "$ amount required"
+              numericality: "$ amount required"
