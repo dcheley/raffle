@@ -2,7 +2,7 @@
   <h2>Coordinator Progress</h2><br/>
 
   <% @users.each do |u| %>
-    <p><%= link_to u.email, user_url(u), class:"link" %></p>
+    <p><%= link_to u.name, user_url(u), class:"link" %></p>
     <p><b><%= "#{u.transactions.where(status: 1).count}" + "/" + "#{u.transactions.count}" %></b> transactions paid</p>
   <% end %>
 </div>

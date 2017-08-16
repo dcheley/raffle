@@ -12,7 +12,7 @@ class UsersController < ApplicationController
 
     respond_to do |format|
       format.html
-      format.csv { send_data @transactions.to_csv, filename: "#{@user.email}/OPS-Raffle/#{Date.today}.csv" }
+      format.csv { send_data @transactions.to_csv, filename: "#{@user.name}/OPS-Raffle/#{Date.today}.csv" }
     end
   end
 end

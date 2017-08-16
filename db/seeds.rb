@@ -5,10 +5,10 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
-User.create([{ email: "email@one.com", password: "123456"},
-            { email: "email@two.com", password: "123456"},
-            { email: "email@three.com", password: "123456"},
-            { email: "email@four.com", password: "123456"},
-            { email: "email@five.com", password: "123456"}])
+User.create([{ email: "email@one.com", password: "123456", name:'Bob'},
+            { email: "email@two.com", password: "123456", name:'Sally'},
+            { email: "email@three.com", password: "123456", name:'Joe'},
+            { email: "email@four.com", password: "123456", name:'Carol'},
+            { email: "email@five.com", password: "123456", name:'Emily'}])
 
-Transaction.create([{ payee: "John", quantity: 5, debt: 20.20, email: "test@email.com", ministry: "MEDG" }])
+# Transaction.create([{ payee: "John", quantity: 5, debt: 20.20, email: "test@email.com", ministry: "MEDG" }])
