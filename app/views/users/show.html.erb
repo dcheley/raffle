@@ -76,9 +76,9 @@
 
 <div class="clean-row">
   <% if current_user != @user %>
-    <h2 class="left-title"><%= @user.name.capitalize %>'s Current transactions</h2><br/>
+    <h2 class="left-title"><%= @user.name.capitalize %>'s Current transactions</h2>
   <% else %>
-    <h2 class="left-title">Current transactions <%= link_to 'Export to CSV', user_url(format: 'csv') %></h2><br/>
+    <h2 class="left-title">Current transactions <%= link_to '(Export to CSV)', user_url(@user, format: 'csv') %></h2>
   <% end %>
 </div>
 

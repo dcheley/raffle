@@ -28,9 +28,7 @@ class TransactionsController < ApplicationController
   end
 
   def update
-    if @transaction.update_attributes(transaction_params)
-      update_ticket_numbers
-    end
+    update_ticket_numbers
     respond_to do |format|
       if @transaction.update_attributes(transaction_params) && @transaction.status == 1
         UserMailer.payment_confirmation(@transaction).deliver_later
@@ -63,12 +61,14 @@ class TransactionsController < ApplicationController
   end
 
   def update_ticket_numbers
-    if @transaction.ticket_numbers.length < @transaction.quantity
-      i = @transaction.quantity - @transaction.ticket_numbers.length
-      i.times.uniq { @transaction.ticket_numbers << rand(100000..999999) }
-    elsif @transaction.ticket_numbers.length > @transaction.quantity
-      i = @transaction.ticket_numbers.length - @transaction.quantity
-      i.times { @transaction.ticket_numbers.pop }
+    if @transaction.update_attributes(transaction_params)
+      if @transaction.ticket_numbers.length < @transaction.quantity
+        i = @transaction.quantity - @transaction.ticket_numbers.length
+        i.times.uniq { @transaction.ticket_numbers << rand(100000..999999) }
+      elsif @transaction.ticket_numbers.length > @transaction.quantity
+        i = @transaction.ticket_numbers.length - @transaction.quantity
+        i.times { @transaction.ticket_numbers.pop }
+      end
     end
   end
 end
