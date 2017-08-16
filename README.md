@@ -1,24 +1,9 @@
-# README
+# OPS Walk & Run raffle app
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Features:
 
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+* Devise Auth
+* Automated emails when transactions are marked complete
+* Unique raffle ticket numbers generated/deleted automatically based on transaction quantity.
+* Transation info can be imported to .csv format (Excel).
+* JSON requests to avoid redirects.
