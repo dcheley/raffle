@@ -20,7 +20,7 @@
 
           <div class="collapse navbar-collapse" id="collapse-1">
             <ul class="nav navbar-nav">
-              <li class="<%= 'active' if current_page?('/users') %>"><%= link_to "Home", users_url, class:"nav-link" %></li>
+              <li class="<%= 'active' if current_page?(root_url) %>"><%= link_to "Home", users_url, class:"nav-link" %></li>
               <li class='<%= "active" if current_page?(user_url(current_user)) %>'><%= link_to "Profile", user_url(current_user), class:"nav-link" %></li>
               <li class='<%= 'active' if current_page?('/users/edit')%>'><%= link_to "Settings", "/users/edit", class:"nav-link" %></li>
               <li><%= link_to "Logout", destroy_user_session_url, method: :delete, class:"nav-link" %></li>
