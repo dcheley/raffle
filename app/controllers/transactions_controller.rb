@@ -3,9 +3,11 @@ class TransactionsController < ApplicationController
 
   def create
     @transaction = Transaction.new(transaction_params)
+
     if @transaction.save
-      @transaction.quantity.times.uniq { @transaction.ticket_numbers << rand(100000..999999) }
+      @transaction.quantity.times.uniq { Ticket.create(number: rand(100000..999999, transaction_id: @transaction.id)) }
     end
+
     @user = @transaction.user
     @transactions = @user.transactions
     respond_to do |format|

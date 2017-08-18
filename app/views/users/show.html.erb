@@ -90,7 +90,12 @@
     <p class="column"><b>Ministry:</b> <%= t.ministry %></p>
     <p class="column"><b>Quantity:</b> <%= t.quantity %></p>
     <p class="column"><b>$ owed:</b> <%= t.debt %></p>
-    <p class="column"><b>Ticket #(s):</b> <%= t.ticket_numbers %></p>
+    <p class="column">
+      <b>Ticket #(s):</b>
+      <% t.tickets.each do |ticket| %>
+        <%= ticket.number %>
+      <% end %>
+    </p>
     <p class="column">
       <b>Status:</b>
       <% if t.status != 1 %>
