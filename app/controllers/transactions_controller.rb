@@ -5,7 +5,7 @@ class TransactionsController < ApplicationController
     @transaction = Transaction.new(transaction_params)
 
     if @transaction.save
-      @transaction.quantity.times.uniq { Ticket.create(number: rand(100000..999999, transaction_id: @transaction.id)) }
+      @transaction.quantity.times.uniq { Ticket.create(number: rand(100000..999999), transaction_id: @transaction.id) }
     end
 
     @user = @transaction.user

@@ -2,7 +2,7 @@ require 'csv'
 
 class Transaction < ApplicationRecord
   belongs_to :user
-  has_many :numbers
+  has_many :tickets
 
   validates :email, :format => { :with => /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\Z/, :on => [:create, :update] }
   validates :payee, presence: true
