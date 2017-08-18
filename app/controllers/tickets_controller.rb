@@ -1,25 +1,5 @@
 class TicketsController < ApplicationController
-  before_action :set_ticket, only: [:show, :edit, :update, :destroy]
-
-  # GET /tickets
-  # GET /tickets.json
-  def index
-    @tickets = Ticket.all
-  end
-
-  # GET /tickets/1
-  # GET /tickets/1.json
-  def show
-  end
-
-  # GET /tickets/new
-  def new
-    @ticket = Ticket.new
-  end
-
-  # GET /tickets/1/edit
-  def edit
-  end
+  before_action :set_ticket, only: [:update, :destroy]
 
   # POST /tickets
   # POST /tickets.json
