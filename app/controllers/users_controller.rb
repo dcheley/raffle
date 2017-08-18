@@ -9,7 +9,7 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
     @transaction = Transaction.new
     @transactions = @user.transactions
-
+    @tickets = @user.tickets
     respond_to do |format|
       format.html
       format.csv { send_data @transactions.to_csv, filename: "#{@user.name}/OPS-Raffle/#{Date.today}.csv" }

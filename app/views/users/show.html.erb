@@ -84,7 +84,7 @@
 
 <% @transactions.each_with_index do |t, i| %>
   <div class="row">
-    <h4 class="column" id="italic">Transaction <%= i + 1 %></h4>
+    <h4 class="column" id="italic"><%= i + 1 %>)</h4>
     <p class="column"><b>Payee:</b> <%= t.payee %></p>
     <p class="column"><b>Email:</b> <%= t.email %></p>
     <p class="column"><b>Ministry:</b> <%= t.ministry %></p>
@@ -93,7 +93,7 @@
     <p class="column">
       <b>Ticket #(s):</b>
       <% t.tickets.each do |ticket| %>
-        <%= ticket.number %>,
+        <%= ticket.number %>/
       <% end %>
     </p>
     <p class="column">

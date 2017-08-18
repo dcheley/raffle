@@ -46,6 +46,7 @@ class TransactionsController < ApplicationController
     end
   end
 
+  # MAKE THIS ALSO DELETE transaction.tickets & TEST JSON
   def destroy
     @transaction.destroy
     redirect_to user_url(current_user), notice: 'Transaction deleted'
@@ -64,12 +65,12 @@ class TransactionsController < ApplicationController
 
   def update_ticket_numbers
     if @transaction.update_attributes(transaction_params)
-      if @transaction.ticket_numbers.length < @transaction.quantity
-        i = @transaction.quantity - @transaction.ticket_numbers.length
-        i.times.uniq { @transaction.ticket_numbers << rand(100000..999999) }
-      elsif @transaction.ticket_numbers.length > @transaction.quantity
-        i = @transaction.ticket_numbers.length - @transaction.quantity
-        i.times { @transaction.ticket_numbers.pop }
+      if @transaction.tickets.count < @transaction.quantity
+        i = @transaction.quantity - @transaction.tickets.count
+        i.times.uniq { Ticket.create(number: rand(100000..999999), transaction_id: @transaction.id) }
+      elsif @transaction.tickets.count > @transaction.quantity
+        i = @transaction.tickets.count - @transaction.quantity
+        i.times { @transaction.tickets.last.destroy }
       end
     end
   end

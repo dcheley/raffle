@@ -3,4 +3,5 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :registerable, :trackable, :validatable
 
   has_many :transactions
+  has_many :tickets, through: :transactions
 end
