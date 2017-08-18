@@ -10,5 +10,10 @@ Rails.application.routes.draw do
 
   resources :users do
     resources :transactions, only: [:create, :destroy]
+    resources :tickets, only: [:create, :destroy]
+  end
+
+  resources :transactions do
+    resources :tickets, only: [:update]
   end
 end
