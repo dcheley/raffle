@@ -19,8 +19,15 @@ p {
   font-size: 14px;
 }
 
+.banner {
+  width: 100%;
+  height: 175px;
+}
+
 .navbar-default {
   background-color: #0D7381;
+  border: none;
+  border-radius: 0;
 }
 
 .nav-link {
