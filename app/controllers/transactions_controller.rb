@@ -3,13 +3,13 @@ class TransactionsController < ApplicationController
 
   def create
     @transaction = Transaction.new(transaction_params)
+    @user = @transaction.user
+    @transactions = @user.transactions
 
     if @transaction.save
       @transaction.quantity.times.uniq { Ticket.create(number: rand(100000..999999), transaction_id: @transaction.id) }
     end
 
-    @user = @transaction.user
-    @transactions = @user.transactions
     respond_to do |format|
       if @transaction.save && @transaction.status == 1
         UserMailer.payment_confirmation(@transaction).deliver_later
@@ -46,8 +46,8 @@ class TransactionsController < ApplicationController
     end
   end
 
-  # MAKE THIS ALSO DELETE transaction.tickets & TEST JSON
   def destroy
+    @transaction.tickets.destroy_all
     @transaction.destroy
     redirect_to user_url(current_user), notice: 'Transaction deleted'
   end
