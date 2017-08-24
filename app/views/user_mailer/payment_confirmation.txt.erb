@@ -1,6 +1,6 @@
 This email confirms your purchase of OPS Walk & Run ticket(s)
 
-Your raffle ticket #(s) is/are <b><%= @transaction.tickets.each {|n| n.number} %>
+Your raffle ticket #(s) is/are <b><%= @transaction.tickets.map {|t| t.number} %>
 
 Thanks,
 
