@@ -4,6 +4,7 @@ class TransactionsController < ApplicationController
   def create
     @transaction = Transaction.new(transaction_params)
     @user = @transaction.user
+    @transactions = @user.transactions
 
     if @transaction.save
       @transaction.quantity.times { Ticket.create(number: rand(100000..999999), transaction_id: @transaction.id) }
