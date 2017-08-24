@@ -6,7 +6,7 @@ class TransactionsController < ApplicationController
     @user = @transaction.user
 
     if @transaction.save
-      @transaction.quantity.times.uniq { Ticket.create(number: rand(100000..999999), transaction_id: @transaction.id) }
+      @transaction.quantity.times { Ticket.create(number: rand(100000..999999), transaction_id: @transaction.id) }
     end
 
     respond_to do |format|
@@ -66,7 +66,7 @@ class TransactionsController < ApplicationController
     if @transaction.update_attributes(transaction_params)
       if @transaction.tickets.count < @transaction.quantity
         i = @transaction.quantity - @transaction.tickets.count
-        i.times.uniq { Ticket.create(number: rand(100000..999999), transaction_id: @transaction.id) }
+        i.times { Ticket.create(number: rand(100000..999999), transaction_id: @transaction.id) }
       elsif @transaction.tickets.count > @transaction.quantity
         i = @transaction.tickets.count - @transaction.quantity
         i.times { @transaction.tickets.last.destroy }
