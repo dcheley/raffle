@@ -1,8 +1,9 @@
-<div class="left-align-wrap">
+<div class="left-align-wrap" style="margin-bottom: 30px;">
   <h2>Coordinator Progress</h2><br/>
 
   <% @users.each do |u| %>
     <p><%= link_to u.name, user_url(u), class:"link" %></p>
-    <p><b><%= "#{u.transactions.where(status: 1).count}" + "/" + "#{u.transactions.count}" %></b> transactions paid</p>
+    <p><b><%= "#{u.transactions.where(payment_check: 1).count}" + "/" + "#{u.transactions.count}" %></b> transactions paid</p>
+    <p><b><%= "#{u.transactions.where(deposit_check: 1).count}" + "/" + "#{u.transactions.count}" %></b> transactions deposited</p>
   <% end %>
 </div>
