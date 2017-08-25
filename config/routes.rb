@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   devise_scope :user do
-    root to: 'users#index'
+    root to: 'users#show'
   end
 
   devise_for :users

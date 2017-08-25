@@ -10,7 +10,7 @@ class Transaction < ApplicationRecord
   validates :debt, numericality: { greater_than_or_equal_to: 0 }
 
   def self.to_csv
-    attributes = %w{payee email ministry quantity debt}
+    attributes = %w{payee email ministry quantity debt number}
     CSV.generate(headers: true) do |csv|
       csv << attributes
       all.each do |transaction|
