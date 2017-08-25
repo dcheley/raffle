@@ -11,11 +11,11 @@ class TransactionsController < ApplicationController
     end
 
     respond_to do |format|
-      if @transaction.save && @transaction.status == 1
+      if @transaction.save && @transaction.payment_check == 1
         UserMailer.payment_confirmation(@transaction).deliver_later
         format.html { redirect_to user_url(@user), notice:'Transaction added & ticket sent' }
         format.json { render json: @user, status: :created, location: @user }
-      elsif @transaction.save && @transaction.status != 1
+      elsif @transaction.save && @transaction.payment_check != 1
         format.html { redirect_to user_url(@user), notice:'Transaction added' }
         format.json { render json: @user, status: :created, location: @user }
       else
@@ -32,11 +32,11 @@ class TransactionsController < ApplicationController
   def update
     update_ticket_numbers
     respond_to do |format|
-      if @transaction.update_attributes(transaction_params) && @transaction.status == 1
+      if @transaction.update_attributes(transaction_params) && @transaction.payment_check == 1
         UserMailer.payment_confirmation(@transaction).deliver_later
         format.html { redirect_to user_url(current_user), notice: 'Transaction info updated & confirmation email sent to payee' }
         format.json { render json: current_user, status: :created, location: current_user }
-      elsif @transaction.update_attributes(transaction_params) && @transaction.status != 1
+      elsif @transaction.update_attributes(transaction_params) && @transaction.payment_check != 1
         format.html { redirect_to user_url(current_user), notice: 'Transaction info updated' }
         format.json { render json: current_user, status: :created, location: current_user }
       else
@@ -59,8 +59,8 @@ class TransactionsController < ApplicationController
   end
 
   def transaction_params
-    params.require(:transaction).permit(:payee, :email, :ministry, :debt,
-    :quantity, :status, :user_id, :ticket_numbers)
+    params.require(:transaction).permit(:payee, :email, :ministry, :debt, :quantity,
+    :payment_check, :user_id, :ticket_numbers, :deposit_check, :confirmation_number)
   end
 
   def update_ticket_numbers

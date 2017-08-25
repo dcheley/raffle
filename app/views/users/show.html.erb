@@ -35,8 +35,16 @@
         <%= f.label :debt, "$ amount owed", class:"field-label" %>
       </div>
 
+      <div class="row-field" id="small-square">
+        <%= f.label :payment_check, "Tickets paid for?", class:"field-label" %>
+      </div>
+
+      <div class="row-field" id="small-square">
+        <%= f.label :deposit_check, "Money deposited?", class:"field-label" %>
+      </div>
+
       <div class="row-field">
-        <%= f.label :status, "Tickets paid for?", class:"field-label" %>
+        <%= f.label :confirmation_number, "Confirmation #", class:"field-label" %>
       </div>
     </div>
 
@@ -61,8 +69,16 @@
         <%= f.number_field :debt, placeholder:"3.00", class:"field-input", step: 0.01 %>
       </div>
 
-      <div class="row-field" style="margin-top: 10px;">
-        <%= f.check_box :status, class:"field-input" %>
+      <div class="row-field" id="small-square" style="margin-top: 10px;">
+        <%= f.check_box :payment_check, class:"field-input" %>
+      </div>
+
+      <div class="row-field" id="small-square" style="margin-top: 10px;">
+        <%= f.check_box :deposit_check, class:"field-input" %>
+      </div>
+
+      <div class="row-field">
+        <%= f.number_field :confirmation_number, class:"field-label" %>
       </div>
 
       <%= f.hidden_field :user_id, value: @user.id %>
@@ -97,13 +113,22 @@
       <% end %>
     </p>
     <p class="column">
-      <b>Status:</b>
-      <% if t.status != 1 %>
+      <b>Paid?:</b>
+      <% if t.payment_check != 1 %>
         <span class="glyphicon glyphicon-remove" style="color: #b71c1c;"></span>
       <% else %>
         <span class="glyphicon glyphicon-ok" style="color: #F6AE1C;"></span>
       <% end %>
     </p>
+    <p class="column">
+      <b>Deposited?:</b>
+      <% if t.deposit_check != 1 %>
+        <span class="glyphicon glyphicon-remove" style="color: #b71c1c;"></span>
+      <% else %>
+        <span class="glyphicon glyphicon-ok" style="color: #F6AE1C;"></span>
+      <% end %>
+    </p>
+    <p class="column"><b>Confirmation #:</b> <%= t.confirmation_number %></p>
 
     <div class="column" style="border-right: none;">
       <%= link_to 'Edit', edit_transaction_url(t), class:'row-link' %>

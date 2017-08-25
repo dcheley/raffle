@@ -94,13 +94,17 @@ p {
 .row-field {
   float: left;
   display: inline;
-  width: 15%;
+  width: 12.5%;
 }
 
 .row-field input {
   padding: 5px;
   margin-top: 5px;
   width: 140px;
+}
+
+.row-field input[type="checkbox"] {
+  width: 100%;
 }
 
 label {
@@ -110,6 +114,11 @@ label {
 .row-link {
   padding-left: 8px;
   font-size: 16px;
+}
+
+#small-square {
+  width: 6.25%;
+  margin-right: 2%;
 }
 
 .alert {
