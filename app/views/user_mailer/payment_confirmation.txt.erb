@@ -1,8 +1,12 @@
 This email confirms your purchase of OPS Walk & Run ticket(s)
 
-Your raffle ticket #(s) is/are <%= @transaction.tickets.map {|t| t.number} %>
+Your <%= @transaction.quantity %> raffle ticket #(s) is/are:
+
+<%= @transaction.tickets.map {|t| t.number} %>
 
 Skill testing question required.
+
+Total CAD spent: $<%= @transaction.debt %>
 
 Thanks,
 
