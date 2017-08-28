@@ -6,7 +6,14 @@
   <body>
     <p>This email confirms your purchase of OPS Walk & Run ticket(s)</p>
 
-    <p>Your raffle ticket #(s) is/are <b><%= @transaction.tickets.map {|t| t.number} %></b></p>
+    <p>Your raffle ticket #(s) is/are:</p>
+
+
+    <div style='background-color: #0D7381; height: 80px; text-align: center;'>
+      <p style='color: white; line-height: 70px;'>
+        <%= @transaction.tickets.map {|t| t.number} %>
+      </p>
+    </div>
 
     <p>Skill testing question required.</p>
 
