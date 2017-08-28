@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
   before_action :authenticate_user!
+  before_action :verify_admin, only: [:index]
 
   def index
     @users = User.all
@@ -14,5 +15,11 @@ class UsersController < ApplicationController
       format.html
       format.csv { send_data @transactions.to_csv, filename: "#{@user.name}/OPS-Raffle/#{Date.today}.csv" }
     end
+  end
+
+  private
+
+  def verify_admin
+    (current_user.nil?) ? redirect_to(root_url) : (redirect_to(root_url) unless current_user.admin?)
   end
 end
