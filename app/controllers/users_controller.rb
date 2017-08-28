@@ -7,7 +7,7 @@ class UsersController < ApplicationController
   end
 
   def show
-    @user = User.find(params[:id])
+    !current_user.admin? ? @user = current_user : @user = User.find(params[:id]) 
     @transaction = Transaction.new
     @transactions = @user.transactions
     @tickets = @user.tickets
@@ -20,6 +20,6 @@ class UsersController < ApplicationController
   private
 
   def verify_admin
-    (current_user.nil?) ? redirect_to(root_url) : (redirect_to(root_url) unless current_user.admin?)
+    (current_user.nil?) ? redirect_to(root_url) : (redirect_to(root_url, notice: 'Unauthorized')  unless current_user.admin?)
   end
 end
