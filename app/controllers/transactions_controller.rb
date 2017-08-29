@@ -34,10 +34,12 @@ class TransactionsController < ApplicationController
     update_ticket_numbers
     respond_to do |format|
       if @transaction.update_attributes(transaction_params) && @transaction.payment_check == 1
+        calculate_debt
         UserMailer.payment_confirmation(@transaction).deliver_later
         format.html { redirect_to user_url(current_user), notice: 'Transaction info updated & confirmation email sent to payee' }
         format.json { render json: current_user, status: :created, location: current_user }
       elsif @transaction.update_attributes(transaction_params) && @transaction.payment_check != 1
+        calculate_debt
         format.html { redirect_to user_url(current_user), notice: 'Transaction info updated' }
         format.json { render json: current_user, status: :created, location: current_user }
       else
@@ -67,9 +69,9 @@ class TransactionsController < ApplicationController
   def calculate_debt
     n = @transaction.quantity * 2.50
     if @transaction.quantity % 2 != 0
-      @transaction.debt = n + 0.5
+      @transaction.update_attributes(debt: n + 0.5)
     else
-      @transaction.debt = n
+      @transaction.update_attributes(debt: n)
     end
   end
 
