@@ -70,7 +70,7 @@
       </div>
 
       <div class="row-field">
-        <%= f.number_field :confirmation_number, class:"field-label" %>
+        <%= f.number_field :confirmation_number, class:"field-label", id:'no-arrows' %>
       </div>
 
       <%= f.hidden_field :user_id, value: @user.id %>
@@ -97,7 +97,7 @@
     <p class="column"><b>Email:</b> <%= t.email %></p>
     <p class="column"><b>Ministry:</b> <%= t.ministry %></p>
     <p class="column"><b>Quantity:</b> <%= t.quantity %></p>
-    <p class="column"><b>$ owed:</b> <%= t.debt %></p>
+    <p class="column"><b>$ owed:</b> <%= "#{'%.02f' % t.debt}" %></p>
     <p class="column">
       <b>Ticket #(s):</b>
       <% t.tickets.each do |ticket| %>

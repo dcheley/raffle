@@ -100,7 +100,7 @@ p {
 .row-field input {
   padding: 5px;
   margin-top: 5px;
-  width: 140px;
+  width: 115px;
 }
 
 .row-field input[type="checkbox"] {
@@ -182,4 +182,10 @@ label {
 .left-title {
   text-align: left;
   margin-top: 30px;
+}
+
+#no-arrows::-webkit-inner-spin-button,
+#no-arrows::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
 }

@@ -12,7 +12,7 @@
 
     <p>Skill testing question required.</p>
 
-    <p>Total CAD spent: <b>$<%= @transaction.debt %></b></p>
+    <p>Total CAD spent: <b>$<%= "#{'%.02f' % @transaction.debt}" %></b></p>
 
     <p>Thanks,</p>
 

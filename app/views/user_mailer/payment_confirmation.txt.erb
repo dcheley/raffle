@@ -6,7 +6,7 @@ Your <%= @transaction.quantity %> raffle ticket #(s) is/are:
 
 Skill testing question required.
 
-Total CAD spent: $<%= @transaction.debt %>
+Total CAD spent: $<%= "#{'%.02f' % @transaction.debt}" %>
 
 Thanks,
 
