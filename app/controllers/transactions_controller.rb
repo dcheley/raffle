@@ -5,7 +5,7 @@ class TransactionsController < ApplicationController
     @transaction = Transaction.new(transaction_params)
     @user = @transaction.user
     @transactions = @user.transactions
-    update_debt
+    calculate_debt
 
     if @transaction.save
       @transaction.quantity.times { Ticket.create(number: rand(100000..999999), transaction_id: @transaction.id) }
@@ -34,12 +34,12 @@ class TransactionsController < ApplicationController
     update_ticket_numbers
     respond_to do |format|
       if @transaction.update_attributes(transaction_params) && @transaction.payment_check == 1
-        update_debt
+        calculate_debt
         UserMailer.payment_confirmation(@transaction).deliver_later
         format.html { redirect_to user_url(current_user), notice: 'Transaction info updated & confirmation email sent to payee' }
         format.json { render json: current_user, status: :created, location: current_user }
       elsif @transaction.update_attributes(transaction_params) && @transaction.payment_check != 1
-        update_debt
+        calculate_debt
         format.html { redirect_to user_url(current_user), notice: 'Transaction info updated' }
         format.json { render json: current_user, status: :created, location: current_user }
       else
@@ -66,7 +66,7 @@ class TransactionsController < ApplicationController
     :payment_check, :user_id, :ticket_numbers, :deposit_check, :confirmation_number)
   end
 
-  def update_debt
+  def calculate_debt
     if @transaction.quantity != nil && @transaction.quantity % 2 != 0
       n = @transaction.quantity * 2.50
       @transaction.update_attributes(debt: n + 0.5)
