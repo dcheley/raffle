@@ -32,14 +32,10 @@
       </div>
 
       <div class="row-field">
-        <%= f.label :debt, "$ amount owed", class:"field-label" %>
-      </div>
-
-      <div class="row-field" id="small-square">
         <%= f.label :payment_check, "Tickets paid for?", class:"field-label" %>
       </div>
 
-      <div class="row-field" id="small-square">
+      <div class="row-field">
         <%= f.label :deposit_check, "Money deposited?", class:"field-label" %>
       </div>
 
@@ -65,15 +61,11 @@
         <%= f.number_field :quantity, placeholder:"2", autofocus: true, class:"field-input" %>
       </div>
 
-      <div class="row-field">
-        <%= f.number_field :debt, placeholder:"3.00", class:"field-input", step: 0.01 %>
-      </div>
-
-      <div class="row-field" id="small-square" style="margin-top: 10px;">
+      <div class="row-field" style="margin-top: 10px;">
         <%= f.check_box :payment_check, class:"field-input" %>
       </div>
 
-      <div class="row-field" id="small-square" style="margin-top: 10px;">
+      <div class="row-field" style="margin-top: 10px;">
         <%= f.check_box :deposit_check, class:"field-input" %>
       </div>
 

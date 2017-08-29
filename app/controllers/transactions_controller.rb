@@ -5,6 +5,7 @@ class TransactionsController < ApplicationController
     @transaction = Transaction.new(transaction_params)
     @user = @transaction.user
     @transactions = @user.transactions
+    calculate_debt
 
     if @transaction.save
       @transaction.quantity.times { Ticket.create(number: rand(100000..999999), transaction_id: @transaction.id) }
@@ -61,6 +62,15 @@ class TransactionsController < ApplicationController
   def transaction_params
     params.require(:transaction).permit(:payee, :email, :ministry, :debt, :quantity,
     :payment_check, :user_id, :ticket_numbers, :deposit_check, :confirmation_number)
+  end
+
+  def calculate_debt
+    n = @transaction.quantity * 2.50
+    if @transaction.quantity % 2 != 0
+      @transaction.debt = n + 0.5
+    else
+      @transaction.debt = n
+    end
   end
 
   def update_ticket_numbers
