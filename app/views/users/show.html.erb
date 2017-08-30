@@ -139,3 +139,18 @@
     </div>
   </div>
 <% end %>
+
+<div class="third">
+  <p class='sub-header'>Total Cash Owed</p>
+  <%= "$#{'%.02f' % @transactions.where.not(payment_check: true).sum(:debt)}" %>
+</div>
+
+<div class="third">
+  <p class='sub-header'>Total Cash On Hand</p>
+  <%= "$#{'%.02f' % @transactions.where(payment_check: true).sum(:debt)}" %>
+</div>
+
+<div class="third">
+  <p class='sub-header'>Total Cash Deposited</p>
+  <%= "$#{'%.02f' % @transactions.where(deposit_check: true).sum(:debt)}" %>
+</div>
