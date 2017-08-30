@@ -24,11 +24,12 @@
     </div>
 
     <div class="field">
-      <%= f.label :password %> <i>(leave blank if you don't want to change it)</i><br />
-      <%= f.password_field :password, autocomplete: "off" %>
+      <%= f.label :password %> <i>(leave blank if you don't want to change it)</i>
       <% if @minimum_password_length %><br />
-        <em><%= @minimum_password_length %> characters minimum</em>
+        <em><%= @minimum_password_length %> characters minimum</em><br />
       <% end %>
+      <%= f.password_field :password, autocomplete: "off" %>
+
     </div>
 
     <div class="field">
