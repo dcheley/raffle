@@ -122,11 +122,13 @@
     </p>
     <p class="column"><b>Confirmation #:</b> <%= t.confirmation_number %></p>
 
-    <div class="column">
-      <%= link_to 'Edit', edit_transaction_url(t), class:'row-link' %>
+    <div class="column" style="padding: 0;">
+      <%= link_to edit_transaction_url(t), class:'row-link' do %>
+        <span class='glyphicon glyphicon-edit'></span>
+      <% end %>
     </div>
-    
-    <div class="column" style="border-right: none;">
+
+    <div class="column" style="border-right: none; padding: 0;">
       <%= link_to user_transaction_url(user_id: current_user.id, id: t.id), method: :delete, data: { confirm: "PERMENANTLY delete transaction data?" }, class:'row-link' do %>
         <span class="glyphicon glyphicon-trash" id="red"></span>
       <% end %>
