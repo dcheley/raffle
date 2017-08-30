@@ -104,35 +104,33 @@
         <%= ticket.number %>/
       <% end %>
     </p>
-    <p class="column" id="half-column" style="border-right: none;">
-      <b>Paid?:</b>
-    </p>
-    <p class="column" id="half-column">
+    <p class="column" id="mixed-content">
+      <b class="precise-position">Paid?:</b>
       <% if t.payment_check != 1 %>
         <span class="glyphicon glyphicon-remove" style="color: #b71c1c;"></span>
       <% else %>
         <span class="glyphicon glyphicon-ok" style="color: #F6AE1C;"></span>
       <% end %>
     </p>
-    <p class="column" id="half-column" style="border-right: none;">
-      <b>Deposited?:</b>
-    </p>
-    <p class="column" id="half-column">
+    <p class="column" id="mixed-content">
+      <b class="precise-position">Deposited?:</b>
       <% if t.deposit_check != 1 %>
         <span class="glyphicon glyphicon-remove" style="color: #b71c1c;"></span>
       <% else %>
         <span class="glyphicon glyphicon-ok" style="color: #F6AE1C;"></span>
       <% end %>
     </p>
-    <p class="column"><b>Confirmation #:</b> <%= t.confirmation_number %></p>
+    <p class="column" style="padding-bottom: 10px;">
+      <b>Confirmation #:</b> <%= t.confirmation_number %>
+    </p>
 
-    <div class="column" style="padding: 0;">
+    <div class="column">
       <%= link_to edit_transaction_url(t), class:'row-link' do %>
         <span class='glyphicon glyphicon-edit'></span>
       <% end %>
     </div>
 
-    <div class="column" id="end-column" style="padding: 0;">
+    <div class="column" id="end-column">
       <%= link_to user_transaction_url(user_id: current_user.id, id: t.id), method: :delete, data: { confirm: "PERMENANTLY delete transaction data?" }, class:'row-link' do %>
         <span class="glyphicon glyphicon-trash" id="red"></span>
       <% end %>
