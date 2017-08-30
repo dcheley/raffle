@@ -2,6 +2,9 @@ class UsersController < ApplicationController
   before_action :authenticate_user!
   before_action :verify_admin, only: [:index]
 
+  def intro
+  end
+
   def index
     @users = User.all
   end
