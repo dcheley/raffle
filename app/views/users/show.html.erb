@@ -98,12 +98,6 @@
     <p class="column"><b>Ministry:</b> <%= t.ministry %></p>
     <p class="column"><b>Quantity:</b> <%= t.quantity %></p>
     <p class="column"><b>Price:</b> <%= "$#{'%.02f' % t.debt}" %></p>
-    <p class="column">
-      <b>Ticket #(s):</b>
-      <% t.tickets.each do |ticket| %>
-        <%= ticket.number %>/
-      <% end %>
-    </p>
     <p class="column" id="mixed-content">
       <b class="precise-position">Paid?:</b>
       <% if t.payment_check != 1 %>
@@ -123,13 +117,17 @@
     <p class="column" style="padding-bottom: 10px;">
       <b>Confirmation #:</b> <%= t.confirmation_number %>
     </p>
-
+    <p class="column">
+      <b>Ticket #(s):</b>
+      <% t.tickets.each do |ticket| %>
+        <%= ticket.number %>/
+      <% end %>
+    </p>
     <div class="column">
       <%= link_to edit_transaction_url(t), class:'row-link' do %>
         <span class='glyphicon glyphicon-edit'></span>
       <% end %>
     </div>
-
     <div class="column" id="end-column">
       <%= link_to user_transaction_url(user_id: current_user.id, id: t.id), method: :delete, data: { confirm: "PERMENANTLY delete transaction data?" }, class:'row-link' do %>
         <span class="glyphicon glyphicon-trash" id="red"></span>
