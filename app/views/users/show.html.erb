@@ -104,16 +104,20 @@
         <%= ticket.number %>/
       <% end %>
     </p>
-    <p class="column">
+    <p class="column" id="half-column" style="border-right: none;">
       <b>Paid?:</b>
+    </p>
+    <p class="column" id="half-column">
       <% if t.payment_check != 1 %>
         <span class="glyphicon glyphicon-remove" style="color: #b71c1c;"></span>
       <% else %>
         <span class="glyphicon glyphicon-ok" style="color: #F6AE1C;"></span>
       <% end %>
     </p>
-    <p class="column">
+    <p class="column" id="half-column" style="border-right: none;">
       <b>Deposited?:</b>
+    </p>
+    <p class="column" id="half-column">
       <% if t.deposit_check != 1 %>
         <span class="glyphicon glyphicon-remove" style="color: #b71c1c;"></span>
       <% else %>
@@ -128,7 +132,7 @@
       <% end %>
     </div>
 
-    <div class="column" style="border-right: none; padding: 0;">
+    <div class="column" id="end-column" style="padding: 0;">
       <%= link_to user_transaction_url(user_id: current_user.id, id: t.id), method: :delete, data: { confirm: "PERMENANTLY delete transaction data?" }, class:'row-link' do %>
         <span class="glyphicon glyphicon-trash" id="red"></span>
       <% end %>
