@@ -16,7 +16,7 @@
       <% end %>
 
       <div class="row-field">
-        <%= f.label :payee, 'Full Name', class:"field-label" %>
+        <%= f.label :full_name, 'Full Name', class:"field-label" %>
       </div>
 
       <div class="row-field">
@@ -40,13 +40,13 @@
       </div>
 
       <div class="row-field">
-        <%= f.label :confirmation_number, "Confirmation #", class:"field-label" %>
+        <%= f.label :date_deposited, "Deposit Date", class:"field-label" %>
       </div>
     </div>
 
     <div class="row">
       <div class="row-field">
-        <%= f.text_field :payee, autofocus: true, class:"field-input" %>
+        <%= f.text_field :full_name, autofocus: true, class:"field-input" %>
       </div>
 
       <div class="row-field">
@@ -70,7 +70,7 @@
       </div>
 
       <div class="row-field">
-        <%= f.number_field :confirmation_number, class:"field-label", id:'no-arrows' %>
+        <%= f.number_field :date_deposited, class:"field-label", id:'no-arrows' %>
       </div>
 
       <%= f.hidden_field :user_id, value: @user.id %>
@@ -93,11 +93,11 @@
 <% @transactions.each_with_index do |t, i| %>
   <div class="row">
     <h4 class="column" id="italic"><%= i + 1 %>)</h4>
-    <p class="column"><b>Full Name:</b> <%= t.payee %></p>
+    <p class="column"><b>Full Name:</b> <%= t.full_name %></p>
     <p class="column"><b>Email:</b> <%= t.email %></p>
     <p class="column"><b>Ministry:</b> <%= t.ministry %></p>
     <p class="column"><b>Quantity:</b> <%= t.quantity %></p>
-    <p class="column"><b>Price:</b> <%= "$#{'%.02f' % t.debt}" %></p>
+    <p class="column"><b>Price:</b> <%= "$#{'%.02f' % t.price}" %></p>
     <p class="column" id="mixed-content">
       <b class="precise-position">Paid?:</b>
       <% if t.payment_check != 1 %>
@@ -115,7 +115,7 @@
       <% end %>
     </p>
     <p class="column" style="padding-bottom: 10px;">
-      <b>Confirmation #:</b> <%= t.confirmation_number %>
+      <b>Deposit Date:</b> <%= t.date_deposited %>
     </p>
     <p class="column">
       <b>Ticket #(s):</b>
@@ -138,15 +138,15 @@
 
 <div class="third">
   <p class='sub-header'>Total Cash Owed</p>
-  <%= "$#{'%.02f' % @transactions.where.not(payment_check: true).sum(:debt)}" %>
+  <%= "$#{'%.02f' % @transactions.where.not(payment_check: true).sum(:price)}" %>
 </div>
 
 <div class="third">
   <p class='sub-header'>Total Cash On Hand</p>
-  <%= "$#{'%.02f' % @transactions.where(payment_check: true).sum(:debt)}" %>
+  <%= "$#{'%.02f' % @transactions.where(payment_check: true, deposit_check: false).sum(:price)}" %>
 </div>
 
 <div class="third">
   <p class='sub-header'>Total Cash Deposited</p>
-  <%= "$#{'%.02f' % @transactions.where(deposit_check: true).sum(:debt)}" %>
+  <%= "$#{'%.02f' % @transactions.where(deposit_check: true).sum(:price)}" %>
 </div>

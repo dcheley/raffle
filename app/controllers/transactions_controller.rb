@@ -62,17 +62,17 @@ class TransactionsController < ApplicationController
   end
 
   def transaction_params
-    params.require(:transaction).permit(:payee, :email, :ministry, :debt, :quantity,
-    :payment_check, :user_id, :ticket_numbers, :deposit_check, :confirmation_number)
+    params.require(:transaction).permit(:full_name, :email, :ministry, :price, :quantity,
+    :payment_check, :user_id, :ticket_numbers, :deposit_check, :date_deposited)
   end
 
   def calculate_debt
     if @transaction.quantity != nil && @transaction.quantity % 2 != 0
       n = @transaction.quantity * 2.50
-      @transaction.update_attributes(debt: n + 0.5)
+      @transaction.update_attributes(price: n + 0.5)
     elsif @transaction.quantity != nil && @transaction.quantity % 2 == 0
       n = @transaction.quantity * 2.50
-      @transaction.update_attributes(debt: n)
+      @transaction.update_attributes(price: n)
     end
   end
 

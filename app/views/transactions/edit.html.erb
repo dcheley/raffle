@@ -15,7 +15,7 @@
     <% end %>
 
     <div class="row-field">
-      <%= f.label :payee, 'Full Name', class:"field-label" %>
+      <%= f.label :full_name, 'Full Name', class:"field-label" %>
     </div>
 
     <div class="row-field">
@@ -39,13 +39,13 @@
     </div>
 
     <div class="row-field">
-      <%= f.label :confirmation_number, "Confirmation #", class:"field-label" %>
+      <%= f.label :date_deposited, "Deposit Date", class:"field-label" %>
     </div>
   </div>
 
   <div class="row">
     <div class="row-field">
-      <%= f.text_field :payee, autofocus: true, class:"field-input" %>
+      <%= f.text_field :full_name, autofocus: true, class:"field-input" %>
     </div>
 
     <div class="row-field">
@@ -69,7 +69,7 @@
     </div>
 
     <div class="row-field">
-      <%= f.number_field :confirmation_number, class:"field-label" %>
+      <%= f.number_field :date_deposited, class:"field-label" %>
     </div>
 
     <div class="button-wrap">
