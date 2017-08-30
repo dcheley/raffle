@@ -1,26 +1,28 @@
 <div class="left-align-wrap">
-  <h2>Login</h2><br/>
+  <div class="left-text">
+    <h2>Login</h2><br/>
 
-  <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-    <%= devise_error_messages! %>
+    <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+      <%= devise_error_messages! %>
 
-    <div class="field">
-      <%= f.label :email %><br />
-      <%= f.email_field :email, autofocus: true %>
-    </div>
+      <div class="field">
+        <%= f.label :email %><br />
+        <%= f.email_field :email, autofocus: true %>
+      </div>
 
-    <div class="field">
-      <%= f.label :password %><br />
-      <%= f.password_field :password, autocomplete: "off" %>
-    </div><br/>
+      <div class="field">
+        <%= f.label :password %><br />
+        <%= f.password_field :password, autocomplete: "off" %>
+      </div><br/>
 
-    <div class="actions" style="text-align: center;">
-      <%= f.submit "Login", class:"submit" %>
-    </div>
+      <div class="actions" style="text-align: center;">
+        <%= f.submit "Login", class:"submit" %>
+      </div>
 
-    <b><p class='center-text'>OR</p></b>
+      <b><p class='center-text'>OR</p></b>
 
-  <% end %>
+    <% end %>
 
-  <%= render "devise/shared/links" %>
+    <%= render "devise/shared/links" %>
+  </div>
 </div>

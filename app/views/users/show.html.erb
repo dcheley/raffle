@@ -16,7 +16,7 @@
       <% end %>
 
       <div class="row-field">
-        <%= f.label :payee, class:"field-label" %>
+        <%= f.label :payee, 'Full Name', class:"field-label" %>
       </div>
 
       <div class="row-field">
@@ -93,11 +93,11 @@
 <% @transactions.each_with_index do |t, i| %>
   <div class="row">
     <h4 class="column" id="italic"><%= i + 1 %>)</h4>
-    <p class="column"><b>Payee:</b> <%= t.payee %></p>
+    <p class="column"><b>Full Name:</b> <%= t.payee %></p>
     <p class="column"><b>Email:</b> <%= t.email %></p>
     <p class="column"><b>Ministry:</b> <%= t.ministry %></p>
     <p class="column"><b>Quantity:</b> <%= t.quantity %></p>
-    <p class="column"><b>$ owed:</b> <%= "#{'%.02f' % t.debt}" %></p>
+    <p class="column"><b>Price:</b> <%= "$#{'%.02f' % t.debt}" %></p>
     <p class="column">
       <b>Ticket #(s):</b>
       <% t.tickets.each do |ticket| %>

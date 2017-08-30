@@ -58,12 +58,20 @@ p {
 }
 
 .left-align-wrap {
-  text-align: left;
+  text-align: center;
   display: inline-block;
 }
 
 .center-text {
   text-align: center;
+}
+
+.left-text {
+  text-align: left;
+}
+
+.center-text,
+.left-text {
   margin-top: 10px;
   margin-bottom: 20px;
 }
