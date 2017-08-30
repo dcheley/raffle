@@ -33,7 +33,7 @@ en:
   activerecord:
     attributes:
       transaction:
-        payee: "Payee name"
+        full_name: "Full name"
         email: "Contact email"
         quantity: "Quantity purchased"
     errors:
@@ -45,6 +45,6 @@ en:
             quantity:
               not_a_number: "must be at least 1"
               numericality: "must be at least 1"
-            debt:
+            price:
               not_a_number: "$ amount required"
               numericality: "$ amount required"
