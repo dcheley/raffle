@@ -12,10 +12,10 @@
 
     <p>Skill testing question required.</p>
 
-    <p>Total CAD spent: <b>$<%= "#{'%.02f' % @transaction.debt}" %></b></p>
+    <p>Total CAD spent: <b>$<%= "#{'%.02f' % @transaction.debt}" %></b> (Receipt NOT taxable)</p>
 
     <p>Thanks,</p>
 
-    <p>OPS Walk & Run</p>
+    <%= image_tag('OPSWalk_Run_logo.png') %>
   </body>
 </html>
