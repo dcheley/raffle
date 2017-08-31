@@ -111,6 +111,23 @@ p {
   width: 12.5%;
 }
 
+#half-width,
+#entry {
+  width: 6.25%;
+}
+
+#prices p {
+  margin-top: 12px;
+}
+
+#entry input {
+  width: 60px;
+}
+
+#prices {
+  width: 20px;
+}
+
 #end-column {
   border-right: none;
 }

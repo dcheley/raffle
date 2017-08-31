@@ -27,8 +27,12 @@
         <%= f.label :ministry, class:"field-label" %>
       </div>
 
-      <div class="row-field">
-        <%= f.label :quantity, "# of tickets", class:"field-label" %>
+      <div class="row-field" id="half-width">
+        <%= f.label :quantity, "Qty", class:"field-label" %>
+      </div>
+
+      <div class="row-field" id="half-width">
+        <%= f.label :price, "Price", class:"field-label" %>
       </div>
 
       <div class="row-field">
@@ -57,8 +61,11 @@
         <%= f.text_field :ministry, placeholder:"ex. MEDG", autofocus: true, class:"field-input" %>
       </div>
 
-      <div class="row-field">
-        <%= f.number_field :quantity, placeholder:"2", autofocus: true, class:"field-input" %>
+      <div class="row-field" id="entry">
+        <%= f.number_field :quantity, placeholder:"2", autofocus: true, class:"field-input", id:"newEntry" %>
+      </div>
+
+      <div class="row-field" id="prices">
       </div>
 
       <div class="row-field" style="margin-top: 10px;">
