@@ -123,11 +123,13 @@
         <%= ticket.number %>/
       <% end %>
     </p>
+    <% if t.payment_check == 1 %>
+      <div class="column">
+        <%= link_to 'Email Ticket Confirmation', controller: 'users', action: 'send_payment_confirmation', id: t.id %>
+      </div>
+    <% end %>
     <div class="column">
-      <%= link_to 'Send Ticket Confirmation', controller: 'users', action: 'send_payment_confirmation', id: t.id %>
-    </div>
-    <div class="column">
-      <%= link_to 'Send Ticket Deletion Notice', controller: 'users', action: 'send_delete_notice', id: t.id %>
+      <%= link_to 'Email Ticket Deletion Notice', controller: 'users', action: 'send_delete_notice', id: t.id %>
     </div>
     <div class="column">
       <%= link_to edit_transaction_url(t), class:'row-link' do %>
