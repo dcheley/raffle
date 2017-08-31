@@ -32,7 +32,7 @@
       <% end %>
     </p>
     <div class="column">
-      <!-- Restore button -->
+      <%= link_to 'Restore Transaction Data', controller: 'transactions', action: 'restore_data', id: t.id %>
     </div>
   </div>
 <% end %>

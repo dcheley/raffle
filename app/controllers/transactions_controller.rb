@@ -48,6 +48,11 @@ class TransactionsController < ApplicationController
     end
   end
 
+  def restore_data
+    Transaction.find_in_trash(params[:id]).restore
+    redirect_to user_url(current_user), notice: 'Transaction data restored'
+  end
+
   private
 
   def load_transaction

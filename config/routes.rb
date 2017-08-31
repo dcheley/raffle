@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   get 'users/intro' => 'users#intro'
   get 'users/trash' => 'users#trash'
   get :send_payment_confirmation, to: 'users#send_payment_confirmation', as: :send_payment_confirmation
+  get :restore_data, to: 'transactions#restore_data', as: :restore_data
 
   devise_scope :user do
     root to: 'users#intro'
