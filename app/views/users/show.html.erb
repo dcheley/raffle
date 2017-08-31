@@ -162,3 +162,5 @@
   <p class='sub-header'>Total Cash Deposited</p>
   <%= "$#{'%.02f' % @transactions.where(deposit_check: 1).sum(:price)}" %>
 </div>
+
+<%= javascript_include_tag 'price', 'data-turbolinks-track': 'reload' %>
