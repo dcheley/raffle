@@ -4,10 +4,10 @@
 //= require_tree .
 //= require bootstrap
 window.onload = function() {
-  document.getElementById('entry').onclick = function() {
+  document.getElementById('entry').oninput = function() {
     var entry = document.getElementById('newEntry').value;
     var entry = parseFloat(entry);
-    
+
     if (entry % 2 != 0) {
       entry = entry * 2.50 + 0.5;
     } else {
