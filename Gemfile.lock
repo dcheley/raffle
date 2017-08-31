@@ -1,3 +1,10 @@
+GIT
+  remote: https://github.com/fesplugas/rails-trash.git
+  revision: b963ba367d76a3c33a0f6b69368057bfe20ec873
+  specs:
+    rails-trash (5.0.0)
+      rails (~> 5.0)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -205,6 +212,7 @@ DEPENDENCIES
   pg
   puma (~> 3.7)
   rails (~> 5.1.1)
+  rails-trash!
   sass-rails (>= 3.2)
   selenium-webdriver
   spring

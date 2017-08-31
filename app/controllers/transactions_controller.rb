@@ -38,7 +38,6 @@ class TransactionsController < ApplicationController
   end
 
   def destroy
-    @transaction.tickets.destroy_all
     @transaction.destroy
     redirect_to user_url(current_user), notice: 'Transaction deleted'
   end
