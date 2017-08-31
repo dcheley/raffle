@@ -3,7 +3,7 @@
 
   <% @users.each do |u| %>
     <p><%= link_to u.name, user_url(u), class:"link" %></p>
-    <p><b><%= "#{u.transactions.where(payment_check: 1).count}" + "/" + "#{u.transactions.count}" %></b> transactions paid <b><%= "($#{'%.02f' % u.transactions.where(payment_check: 1).sum(:price)})" %></b></p>
+    <p><b><%= "#{u.transactions.where(payment_check: 1).count}" + "/" + "#{u.transactions.count}" %></b> transactions paid <b><%= "($#{'%.02f' % u.transactions.where(payment_check: 1, deposit_check: 0).sum(:price)})" %></b></p>
     <p><b><%= "#{u.transactions.where(deposit_check: 1).count}" + "/" + "#{u.transactions.count}" %></b> transactions deposited <b><%= "($#{'%.02f' % u.transactions.where(deposit_check: 1).sum(:price)})" %></b></p>
   <% end %>
 </div>
