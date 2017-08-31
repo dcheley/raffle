@@ -129,15 +129,12 @@
       </div>
     <% end %>
     <div class="column">
-      <%= link_to 'Email Ticket Deletion Notice', controller: 'users', action: 'send_delete_notice', id: t.id %>
-    </div>
-    <div class="column">
       <%= link_to edit_transaction_url(t), class:'row-link' do %>
         <span class='glyphicon glyphicon-edit'></span>
       <% end %>
     </div>
     <div class="column" id="end-column">
-      <%= link_to user_transaction_url(user_id: current_user.id, id: t.id), method: :delete, data: { confirm: "PERMENANTLY delete transaction data?" }, class:'row-link' do %>
+      <%= link_to user_transaction_url(user_id: current_user.id, id: t.id), method: :delete, data: { confirm: "Delete transaction data?" }, class:'row-link' do %>
         <span class="glyphicon glyphicon-trash" id="red"></span>
       <% end %>
     </div>

@@ -1,0 +1,38 @@
+<% @transactions.each_with_index do |t, i| %>
+  <div class="row">
+    <h4 class="column" id="italic"><%= i + 1 %>)</h4>
+    <p class="column"><b>Full Name:</b> <%= t.full_name %></p>
+    <p class="column"><b>Email:</b> <%= t.email %></p>
+    <p class="column"><b>Ministry:</b> <%= t.ministry %></p>
+    <p class="column"><b>Quantity:</b> <%= t.quantity %></p>
+    <p class="column"><b>Price:</b> <%= "$#{'%.02f' % t.price}" %></p>
+    <p class="column" id="mixed-content">
+      <b class="precise-position">Paid?:</b>
+      <% if t.payment_check != 1 %>
+        <span class="glyphicon glyphicon-remove" style="color: #b71c1c;"></span>
+      <% else %>
+        <span class="glyphicon glyphicon-ok" style="color: #F6AE1C;"></span>
+      <% end %>
+    </p>
+    <p class="column" id="mixed-content">
+      <b class="precise-position">Deposited?:</b>
+      <% if t.deposit_check != 1 %>
+        <span class="glyphicon glyphicon-remove" style="color: #b71c1c;"></span>
+      <% else %>
+        <span class="glyphicon glyphicon-ok" style="color: #F6AE1C;"></span>
+      <% end %>
+    </p>
+    <p class="column" style="padding-bottom: 10px;">
+      <b>Deposit Date:</b> <%= t.date_deposited %>
+    </p>
+    <p class="column">
+      <b>Ticket #(s):</b>
+      <% t.tickets.each do |ticket| %>
+        <%= ticket.number %>/
+      <% end %>
+    </p>
+    <div class="column">
+      <!-- Restore button -->
+    </div>
+  </div>
+<% end %>

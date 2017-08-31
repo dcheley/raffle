@@ -38,8 +38,14 @@ class TransactionsController < ApplicationController
   end
 
   def destroy
-    @transaction.destroy
-    redirect_to user_url(current_user), notice: 'Transaction deleted'
+    @user = @transaction.user
+
+    respond_to do |format|
+      UserMailer.payment_confirmation(@transaction).deliver_later
+      @transaction.destroy
+      format.html { redirect_to user_url(@user), notice:'Transaction moved to trash & notification email sent' }
+      format.json { render json: @user, status: :created, location: @user }
+    end
   end
 
   private
