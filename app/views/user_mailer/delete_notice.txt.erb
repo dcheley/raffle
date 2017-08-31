@@ -1,0 +1,13 @@
+This email notifies the cancellation of your purchased OPS Walk & Run ticket(s)
+
+The following ticket numbers are no longer valid:
+
+<%= @transaction.tickets.map {|t| t.number} %>
+
+Total CAD spent: <%= "#{'%.02f' % @transaction.price}" %> (Receipt NOT taxable)
+
+Please respond to this email if you have any questions or concerns.
+
+Thanks,
+
+OPS Walk & Run

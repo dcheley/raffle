@@ -20,6 +20,29 @@ class UsersController < ApplicationController
     end
   end
 
+  def send_payment_confirmation
+    @user = current_user
+    @transaction = Transaction.find(params[:id])
+
+    respond_to do |format|
+      UserMailer.payment_confirmation(@transaction).deliver_later
+      format.html { redirect_to user_url(@user), notice:'Ticket confirmation email sent' }
+      format.json { render json: @user, status: :created, location: @user }
+    end
+  end
+
+  # Plug this logic into new ticket deletion process later
+  def send_delete_notice
+    @user = current_user
+    @transaction = Transaction.find(params[:id])
+
+    respond_to do |format|
+      UserMailer.delete_notice(@transaction).deliver_later
+      format.html { redirect_to user_url(@user), notice:'Ticket deletion notice email sent' }
+      format.json { render json: @user, status: :created, location: @user }
+    end
+  end
+
   private
 
   def verify_admin

@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+    <p>This email notifies the cancellation of your purchased OPS Walk & Run ticket(s)</p>
+
+    <p>The following ticket numbers are no longer valid:</p>
+
+    <p><b><%= @transaction.tickets.map {|t| t.number} %></b></p>
+
+    <p>Total CAD spent: <b>$<%= "#{'%.02f' % @transaction.price}" %></b> (Receipt NOT taxable)</p>
+
+    <p>Please respond to this email if you have any questions or concerns.</p>
+
+    <p>Thanks,</p>
+
+    <%= image_tag('OPSWalk_Run_logo.png') %>
+  </body>
+</html>
