@@ -61,7 +61,7 @@ class TransactionsController < ApplicationController
 
   def transaction_params
     params.require(:transaction).permit(:full_name, :email, :ministry, :price, :quantity,
-    :payment_check, :user_id, :ticket_numbers, :deposit_check, :date_deposited)
+    :payment_check, :user_id, :ticket_numbers, :deposit_check, :date_deposited, :sent_confirmation)
   end
 
   def calculate_price

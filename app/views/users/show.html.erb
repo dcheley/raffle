@@ -130,9 +130,13 @@
         <%= ticket.number %>/
       <% end %>
     </p>
-    <% if t.payment_check == 1 %>
+    <% if t.payment_check == 1 && t.sent_confirmation != 1 %>
       <div class="column">
-        <%= link_to 'Email Ticket Confirmation', controller: 'users', action: 'send_payment_confirmation', id: t.id %>
+        <%= link_to "Send tickets to #{t.full_name}", controller: 'users', action: 'send_payment_confirmation', id: t.id %>
+      </div>
+    <% elsif t.sent_confirmation == 1 %>
+      <div class="column" style="color: green; font-weight: bold;">
+        <%= "Ticket confirmation email sent #{t.full_name}" %>
       </div>
     <% end %>
     <div class="column">

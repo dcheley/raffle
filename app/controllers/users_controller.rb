@@ -30,6 +30,7 @@ class UsersController < ApplicationController
     @transaction = Transaction.find(params[:id])
 
     respond_to do |format|
+      @transaction.update_attributes(sent_confirmation: 1)
       UserMailer.payment_confirmation(@transaction).deliver_later
       format.html { redirect_to user_url(@user), notice:'Ticket confirmation email sent' }
       format.json { render json: @user, status: :created, location: @user }
