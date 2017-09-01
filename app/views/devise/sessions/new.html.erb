@@ -3,6 +3,10 @@
 <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
   <%= devise_error_messages! %>
 
+  <%- flash.each do |name, msg| -%>
+    <div style="color: red;"><br/><%= content_tag :div, msg, id: "flash_#{name}" %><br /></div>
+  <%- end -%>
+
   <div class="field">
     <%= f.label :email %><br />
     <%= f.email_field :email, autofocus: true %>
