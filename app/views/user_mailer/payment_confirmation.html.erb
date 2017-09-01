@@ -10,7 +10,7 @@
 
     <p><b><%= @transaction.tickets.map {|t| t.number} %></b></p>
 
-    <p>Skill testing question required.</p>
+    <p>Skill testing question required if you win.</p>
 
     <p>Total CAD spent: <b>$<%= "#{'%.02f' % @transaction.price}" %></b> (Receipt NOT taxable)</p>
 

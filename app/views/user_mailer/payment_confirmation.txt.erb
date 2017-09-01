@@ -4,7 +4,7 @@ Your <%= @transaction.quantity %> raffle ticket #(s) is/are:
 
 <%= @transaction.tickets.map {|t| t.number} %>
 
-Skill testing question required.
+Skill testing question required if you win.
 
 Total CAD spent: $<%= "#{'%.02f' % @transaction.price}" %> (Receipt NOT taxable)
 
