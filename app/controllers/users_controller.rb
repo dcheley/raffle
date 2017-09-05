@@ -25,6 +25,9 @@ class UsersController < ApplicationController
     @transactions = @user.transactions.deleted
   end
 
+  def bank_instructions
+  end
+
   def send_payment_confirmation
     @user = current_user
     @transaction = Transaction.find(params[:id])
