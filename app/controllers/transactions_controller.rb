@@ -41,7 +41,7 @@ class TransactionsController < ApplicationController
     @user = @transaction.user
 
     respond_to do |format|
-      UserMailer.payment_confirmation(@transaction).deliver_later
+      UserMailer.delete_notice(@transaction).deliver_later
       @transaction.destroy
       format.html { redirect_to user_url(@user), notice:'Transaction moved to trash & notification email sent' }
       format.json { render json: @user, status: :created, location: @user }
