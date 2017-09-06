@@ -20,4 +20,6 @@ config/secrets.yml
 /node_modules
 /yarn-error.log
 
+/app/views/users/bank_instructions.html.erb
+
 .byebug_history
