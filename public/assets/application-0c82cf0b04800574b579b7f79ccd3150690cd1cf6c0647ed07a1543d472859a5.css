@@ -8811,50 +8811,75 @@ p {
 }
 
 /* line 22, /home/dcheley/Desktop/projX/raffle/app/assets/stylesheets/application.scss */
-.navbar-default {
-  background-color: #0D7381;
+.banner {
+  width: 100%;
+  height: 175px;
 }
 
-/* line 26, /home/dcheley/Desktop/projX/raffle/app/assets/stylesheets/application.scss */
+/* line 27, /home/dcheley/Desktop/projX/raffle/app/assets/stylesheets/application.scss */
+.navbar-default {
+  background-color: #0D7381;
+  border: none;
+  border-radius: 0;
+}
+
+/* line 33, /home/dcheley/Desktop/projX/raffle/app/assets/stylesheets/application.scss */
 .nav-link {
   color: #F6AE1C !important;
 }
 
-/* line 30, /home/dcheley/Desktop/projX/raffle/app/assets/stylesheets/application.scss */
+/* line 37, /home/dcheley/Desktop/projX/raffle/app/assets/stylesheets/application.scss */
 .nav-link:hover {
   font-weight: bold;
 }
 
-/* line 34, /home/dcheley/Desktop/projX/raffle/app/assets/stylesheets/application.scss */
+/* line 41, /home/dcheley/Desktop/projX/raffle/app/assets/stylesheets/application.scss */
 .navbar-default .navbar-nav > .active > a,
 .navbar-default .navbar-nav > .active > a:hover {
   color: white !important;
   background-color: #0D7381;
 }
 
-/* line 40, /home/dcheley/Desktop/projX/raffle/app/assets/stylesheets/application.scss */
+/* line 47, /home/dcheley/Desktop/projX/raffle/app/assets/stylesheets/application.scss */
 .navbar-toggle {
   float: left;
 }
 
-/* line 44, /home/dcheley/Desktop/projX/raffle/app/assets/stylesheets/application.scss */
+/* line 51, /home/dcheley/Desktop/projX/raffle/app/assets/stylesheets/application.scss */
 .nav.navbar-nav {
   padding-left: 2%;
 }
 
-/* line 48, /home/dcheley/Desktop/projX/raffle/app/assets/stylesheets/application.scss */
+/* line 55, /home/dcheley/Desktop/projX/raffle/app/assets/stylesheets/application.scss */
 .container {
   width: 90%;
   text-align: center;
 }
 
-/* line 53, /home/dcheley/Desktop/projX/raffle/app/assets/stylesheets/application.scss */
+/* line 60, /home/dcheley/Desktop/projX/raffle/app/assets/stylesheets/application.scss */
 .left-align-wrap {
-  text-align: left;
+  text-align: center;
   display: inline-block;
 }
 
-/* line 58, /home/dcheley/Desktop/projX/raffle/app/assets/stylesheets/application.scss */
+/* line 65, /home/dcheley/Desktop/projX/raffle/app/assets/stylesheets/application.scss */
+.center-text {
+  text-align: center;
+}
+
+/* line 69, /home/dcheley/Desktop/projX/raffle/app/assets/stylesheets/application.scss */
+.left-text {
+  text-align: left;
+}
+
+/* line 73, /home/dcheley/Desktop/projX/raffle/app/assets/stylesheets/application.scss */
+.center-text,
+.left-text {
+  margin-top: 10px;
+  margin-bottom: 20px;
+}
+
+/* line 79, /home/dcheley/Desktop/projX/raffle/app/assets/stylesheets/application.scss */
 .row,
 .clean-row {
   margin-bottom: 20px;
@@ -8862,57 +8887,114 @@ p {
   text-align: left;
 }
 
-/* line 65, /home/dcheley/Desktop/projX/raffle/app/assets/stylesheets/application.scss */
+/* line 86, /home/dcheley/Desktop/projX/raffle/app/assets/stylesheets/application.scss */
 .row {
   border-bottom: solid;
-  border-width: 3px;
+  border-width: 2px;
   border-color: #0D7381;
 }
 
-/* line 71, /home/dcheley/Desktop/projX/raffle/app/assets/stylesheets/application.scss */
+/* line 92, /home/dcheley/Desktop/projX/raffle/app/assets/stylesheets/application.scss */
 .clean-row {
   border-bottom: none;
   margin-left: -15px;
   margin-right: -15px;
 }
 
-/* line 77, /home/dcheley/Desktop/projX/raffle/app/assets/stylesheets/application.scss */
+/* line 98, /home/dcheley/Desktop/projX/raffle/app/assets/stylesheets/application.scss */
 .column {
   float: left;
   margin-top: 0;
-  padding: 10px;
+  padding: 0 10px;
   display: inline;
   border-right: solid;
-  border-width: 3px;
+  border-width: 2px;
   border-color: #0D7381;
 }
 
-/* line 87, /home/dcheley/Desktop/projX/raffle/app/assets/stylesheets/application.scss */
+/* line 108, /home/dcheley/Desktop/projX/raffle/app/assets/stylesheets/application.scss */
 .row-field {
   float: left;
   display: inline;
-  width: 15%;
+  width: 12.5%;
 }
 
-/* line 93, /home/dcheley/Desktop/projX/raffle/app/assets/stylesheets/application.scss */
+/* line 114, /home/dcheley/Desktop/projX/raffle/app/assets/stylesheets/application.scss */
+#half-width,
+#entry {
+  width: 6.25%;
+}
+
+/* line 119, /home/dcheley/Desktop/projX/raffle/app/assets/stylesheets/application.scss */
+#prices p {
+  margin-top: 12px;
+}
+
+/* line 123, /home/dcheley/Desktop/projX/raffle/app/assets/stylesheets/application.scss */
+#entry input {
+  width: 60px;
+}
+
+/* line 127, /home/dcheley/Desktop/projX/raffle/app/assets/stylesheets/application.scss */
+#prices {
+  width: 20px;
+}
+
+/* line 131, /home/dcheley/Desktop/projX/raffle/app/assets/stylesheets/application.scss */
+#end-column {
+  border-right: none;
+}
+
+/* line 135, /home/dcheley/Desktop/projX/raffle/app/assets/stylesheets/application.scss */
+.precise-position {
+  position: relative;
+  top: -7px;
+}
+
+/* line 140, /home/dcheley/Desktop/projX/raffle/app/assets/stylesheets/application.scss */
 .row-field input {
   padding: 5px;
   margin-top: 5px;
-  width: 140px;
+  width: 115px;
 }
 
-/* line 99, /home/dcheley/Desktop/projX/raffle/app/assets/stylesheets/application.scss */
+/* line 146, /home/dcheley/Desktop/projX/raffle/app/assets/stylesheets/application.scss */
+.row-field input[type="checkbox"] {
+  position: absolute;
+}
+
+/* line 150, /home/dcheley/Desktop/projX/raffle/app/assets/stylesheets/application.scss */
 label {
   margin-top: 5px;
 }
 
-/* line 103, /home/dcheley/Desktop/projX/raffle/app/assets/stylesheets/application.scss */
+/* line 154, /home/dcheley/Desktop/projX/raffle/app/assets/stylesheets/application.scss */
 .row-link {
-  padding-left: 8px;
-  font-size: 16px;
+  font-size: 26px;
+  margin-left: 15px;
+  margin-right: 15px;
 }
 
-/* line 108, /home/dcheley/Desktop/projX/raffle/app/assets/stylesheets/application.scss */
+/* line 160, /home/dcheley/Desktop/projX/raffle/app/assets/stylesheets/application.scss */
+.column .glyphicon {
+  font-size: 24px;
+  top: -2px;
+}
+
+/* line 165, /home/dcheley/Desktop/projX/raffle/app/assets/stylesheets/application.scss */
+.third {
+  float: left;
+  width: 33%;
+  margin-bottom: 30px;
+}
+
+/* line 171, /home/dcheley/Desktop/projX/raffle/app/assets/stylesheets/application.scss */
+.sub-header {
+  font-size: 16px;
+  font-weight: bold;
+}
+
+/* line 176, /home/dcheley/Desktop/projX/raffle/app/assets/stylesheets/application.scss */
 .alert {
   padding-top: 15px;
   padding-bottom: 15px;
@@ -8923,26 +9005,26 @@ label {
   font-weight: bold;
 }
 
-/* line 118, /home/dcheley/Desktop/projX/raffle/app/assets/stylesheets/application.scss */
+/* line 186, /home/dcheley/Desktop/projX/raffle/app/assets/stylesheets/application.scss */
 #error_explanation li,
 .error-msg {
   color: #b71c1c;
 }
 
-/* line 123, /home/dcheley/Desktop/projX/raffle/app/assets/stylesheets/application.scss */
+/* line 191, /home/dcheley/Desktop/projX/raffle/app/assets/stylesheets/application.scss */
 #error_explanation h2,
 #error_explanation h4 {
   font-size: 20px;
   margin-top: 0;
 }
 
-/* line 129, /home/dcheley/Desktop/projX/raffle/app/assets/stylesheets/application.scss */
+/* line 197, /home/dcheley/Desktop/projX/raffle/app/assets/stylesheets/application.scss */
 .button-wrap {
   text-align: center;
   margin-bottom: 15px;
 }
 
-/* line 134, /home/dcheley/Desktop/projX/raffle/app/assets/stylesheets/application.scss */
+/* line 202, /home/dcheley/Desktop/projX/raffle/app/assets/stylesheets/application.scss */
 .submit,
 .cancel {
   text-transform: uppercase;
@@ -8952,41 +9034,58 @@ label {
   border: none;
 }
 
-/* line 143, /home/dcheley/Desktop/projX/raffle/app/assets/stylesheets/application.scss */
+/* line 211, /home/dcheley/Desktop/projX/raffle/app/assets/stylesheets/application.scss */
 .submit {
   background-color: #F6AE1C;
 }
 
-/* line 147, /home/dcheley/Desktop/projX/raffle/app/assets/stylesheets/application.scss */
+/* line 215, /home/dcheley/Desktop/projX/raffle/app/assets/stylesheets/application.scss */
 .cancel {
   background-color: #b71c1c;
 }
 
-/* line 151, /home/dcheley/Desktop/projX/raffle/app/assets/stylesheets/application.scss */
+/* line 219, /home/dcheley/Desktop/projX/raffle/app/assets/stylesheets/application.scss */
+.actions {
+  text-align: center;
+}
+
+/* line 223, /home/dcheley/Desktop/projX/raffle/app/assets/stylesheets/application.scss */
+#blue {
+  color: #0D7381;
+}
+
+/* line 227, /home/dcheley/Desktop/projX/raffle/app/assets/stylesheets/application.scss */
 #red {
   color: #b71c1c;
 }
 
-/* line 155, /home/dcheley/Desktop/projX/raffle/app/assets/stylesheets/application.scss */
+/* line 231, /home/dcheley/Desktop/projX/raffle/app/assets/stylesheets/application.scss */
 #red:hover {
   color: #e53935;
 }
 
-/* line 159, /home/dcheley/Desktop/projX/raffle/app/assets/stylesheets/application.scss */
+/* line 235, /home/dcheley/Desktop/projX/raffle/app/assets/stylesheets/application.scss */
 .submit:hover,
 .cancel:hover {
   opacity: 0.8;
   color: white;
 }
 
-/* line 166, /home/dcheley/Desktop/projX/raffle/app/assets/stylesheets/application.scss */
+/* line 242, /home/dcheley/Desktop/projX/raffle/app/assets/stylesheets/application.scss */
 #italic {
   font-style: italic;
   padding-left: 0;
 }
 
-/* line 171, /home/dcheley/Desktop/projX/raffle/app/assets/stylesheets/application.scss */
+/* line 247, /home/dcheley/Desktop/projX/raffle/app/assets/stylesheets/application.scss */
 .left-title {
   text-align: left;
   margin-top: 30px;
+}
+
+/* line 252, /home/dcheley/Desktop/projX/raffle/app/assets/stylesheets/application.scss */
+#no-arrows::-webkit-inner-spin-button,
+#no-arrows::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
 }
