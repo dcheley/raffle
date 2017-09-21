@@ -9,7 +9,7 @@ Rails.application.routes.draw do
     root to: 'users#intro'
   end
 
-  devise_for :users
+  devise_for :users, controllers: { registrations: "registrations" }
 
   resources :users, only: [:index, :show]
   resources :transactions, only: [:edit, :update]
