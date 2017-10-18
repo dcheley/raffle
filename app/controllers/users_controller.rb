@@ -22,7 +22,7 @@ class UsersController < ApplicationController
 
   def trash
     @user = current_user
-    @transactions = @user.transactions.deleted
+    @transactions = Transaction.deleted.where(user_id: @user.id)
   end
 
   def bank_instructions
