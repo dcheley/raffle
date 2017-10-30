@@ -7,6 +7,7 @@ class UsersController < ApplicationController
 
   def index
     @users = User.all
+    @transactions = Transaction.where(payment_check: 1)
   end
 
   def show

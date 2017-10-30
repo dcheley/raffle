@@ -1,9 +1,29 @@
-<div class="left-align-wrap" style="margin-bottom: 30px;">
-  <h2>Coordinator Progress</h2><br/>
+<div class="float">
+  <div class="left-align-wrap" style="margin-bottom: 30px;">
+    <h2>Coordinator Progress</h2><br/>
 
-  <% @users.each do |u| %>
-    <p><%= link_to u.name, user_url(u), class:"link" %></p>
-    <p><b><%= "#{u.transactions.where(payment_check: 1).count}" + "/" + "#{u.transactions.count}" %></b> transactions paid <b><%= "($#{'%.02f' % u.transactions.where(payment_check: 1, deposit_check: 0).sum(:price)})" %></b></p>
-    <p><b><%= "#{u.transactions.where(deposit_check: 1).count}" + "/" + "#{u.transactions.count}" %></b> transactions deposited <b><%= "($#{'%.02f' % u.transactions.where(deposit_check: 1).sum(:price)})" %></b></p>
-  <% end %>
+    <% @users.each do |u| %>
+      <p><%= link_to u.name, user_url(u), class:"link" %></p>
+      <p><b><%= "#{u.transactions.where(payment_check: 1).count}" + "/" + "#{u.transactions.count}" %></b> transactions paid <b><%= "($#{'%.02f' % u.transactions.where(payment_check: 1, deposit_check: 0).sum(:price)})" %></b></p>
+      <p><b><%= "#{u.transactions.where(deposit_check: 1).count}" + "/" + "#{u.transactions.count}" %></b> transactions deposited <b><%= "($#{'%.02f' % u.transactions.where(deposit_check: 1).sum(:price)})" %></b></p>
+    <% end %>
+  </div>
+</div>
+
+<div class="float">
+  <div class="left-align-wrap" style="margin-bottom: 30px;">
+    <h2>Purchased Ticket Info</h2><br/>
+
+    <!-- As long as they've paid, display -->
+    <% @transactions.each do |t| %>
+      <p><b>Name:</b> <%= t.full_name %></p>
+      <p><b>Ministry:</b> <%= t.ministry %></p>
+      <p>
+        <b>Ticket #'s:</b>
+        <% t.tickets.each do |ticket| %>
+          <%= "#{ticket.number}" + ", " %>
+        <% end %>
+      </p>
+    <% end %>
+  </div>
 </div>
