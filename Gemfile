@@ -15,7 +15,7 @@ gem 'puma', '~> 3.7'
 # Use SCSS for stylesheets
 gem 'bootstrap-sass', '~> 3.3.6'
 
-gem 'sass-rails', '>= 3.2'
+gem 'sassc'
 
 gem 'jquery-rails'
 # Use Uglifier as compressor for JavaScript assets
@@ -33,7 +33,14 @@ gem 'jbuilder', '~> 2.5'
 # gem 'redis', '~> 3.0'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
-gem 'rails-trash', :git => 'https://github.com/fesplugas/rails-trash.git'
+gem 'rails-trash', '~> 2.0'
+
+# Updating versions to avoid vulnerabilities
+gem 'loofah', '~> 2.2.1'
+gem 'nokogiri', '~> 1.8.2'
+gem 'rails-html-sanitizer', '~> 1.0.4'
+gem 'rubyzip', '~> 1.2.2'
+gem 'sprockets', '~> 3.7.2'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
