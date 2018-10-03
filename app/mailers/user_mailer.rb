@@ -3,13 +3,13 @@ class UserMailer < ApplicationMailer
     @transaction = transaction
 
     @url = 'http://ops-raffle.herokuapp.com'
-    mail( to: @transaction.email, subject: 'OPS Walk & Run Ticket Confirmation')
+    mail( to: @transaction.email, subject: 'OPS Walk & Run Raffle Ticket Confirmation')
   end
 
   def delete_notice(transaction)
     @transaction = transaction
 
     @url = 'http://ops-raffle.herokuapp.com'
-    mail( to: @transaction.email, subject: 'OPS Walk & Run Ticket Deletion Notice')
+    mail( to: @transaction.email, subject: 'OPS Walk & Run Raffle Ticket Deletion Notice')
   end
 end

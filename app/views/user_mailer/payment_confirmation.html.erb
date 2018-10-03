@@ -4,19 +4,17 @@
     <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
   </head>
   <body>
-    <p>This email confirms your purchase of OPS Walk & Run ticket(s)</p>
+    <p>This email confirms your purchase of OPS Walk & Run raffle ticket(s) to win the $500 spa gift card. The draw will take place on October 29th, 2018.</p>
 
     <p>Your <%= @transaction.quantity %> raffle ticket #(s) is/are:</p>
 
     <p><b><%= @transaction.tickets.map {|t| t.number} %></b></p>
 
-    <p>Skill testing question required if you win.</p>
+    <p>Total CAD spent: <b>$<%= "#{'%.02f' % @transaction.price}" %></b></p>
 
-    <p>Total CAD spent: <b>$<%= "#{'%.02f' % @transaction.price}" %></b> (Receipt NOT taxable)</p>
+    <p>Please contact opswalkrun@ontario.ca if you have any questions or concerns.</p>
 
-    <p>Please respond to this email if you have any questions or concerns.</p>
-
-    <p>Thanks,</p>
+    <p>Thank you and good luck!</p>
 
     <%= image_tag('OPSWalk_Run_logo.png') %>
   </body>

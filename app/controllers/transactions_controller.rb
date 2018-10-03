@@ -49,8 +49,8 @@ class TransactionsController < ApplicationController
   end
 
   def restore_data
-    @transaction = Transaction.find_in_trash(params[:id])
-    @transaction.restore
+    @transaction = Transaction.only_deleted.find(params[:id])
+    @transaction.recover
     @transaction.update_attributes(sent_confirmation: 0)
     redirect_to user_url(current_user), notice: 'Transaction data restored'
   end

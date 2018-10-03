@@ -1,15 +1,13 @@
-This email confirms your purchase of OPS Walk & Run ticket(s)
+This email confirms your purchase of OPS Walk & Run raffle ticket(s) to win the $500 spa gift card. The draw will take place on October 29th, 2018.
 
 Your <%= @transaction.quantity %> raffle ticket #(s) is/are:
 
 <%= @transaction.tickets.map {|t| t.number} %>
 
-Skill testing question required if you win.
+Total CAD spent: $<%= "#{'%.02f' % @transaction.price}" %>
 
-Total CAD spent: $<%= "#{'%.02f' % @transaction.price}" %> (Receipt NOT taxable)
+Please contact opswalkrun@ontario.ca if you have any questions or concerns.
 
-Please respond to this email if you have any questions or concerns.
-
-Thanks,
+Thank you and good luck!
 
 OPS Walk & Run

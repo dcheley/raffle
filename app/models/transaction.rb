@@ -1,8 +1,7 @@
 require 'csv'
 
 class Transaction < ApplicationRecord
-  include Rails::Trash
-  default_scope { where(arel_table[:deleted_at].eq(nil)) if arel_table[:deleted_at] }
+  acts_as_paranoid
 
   belongs_to :user
   has_many :tickets
