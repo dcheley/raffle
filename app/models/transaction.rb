@@ -14,7 +14,7 @@ class Transaction < ApplicationRecord
     attributes = %w{full_name email ministry quantity price payment_check deposit_check date_deposited}
     CSV.generate(headers: true) do |csv|
       csv << attributes
-      Transaction.where("updated_at >= ?", DateTime.now.beginning_of_week).each do |transaction|
+      all.each do |transaction|
         csv << attributes.map{ |attr| transaction.send(attr) }
       end
     end
