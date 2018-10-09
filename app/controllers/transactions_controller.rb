@@ -6,7 +6,6 @@ class TransactionsController < ApplicationController
     @user = @transaction.user
     @transactions = @user.transactions
     calculate_price
-
     respond_to do |format|
       if @transaction.save
         @transaction.quantity.times { Ticket.create(number: rand(100000..999999), transaction_id: @transaction.id) }
@@ -39,7 +38,6 @@ class TransactionsController < ApplicationController
 
   def destroy
     @user = @transaction.user
-
     respond_to do |format|
       UserMailer.delete_notice(@transaction).deliver_later
       @transaction.destroy

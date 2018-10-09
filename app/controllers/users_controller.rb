@@ -1,6 +1,7 @@
 class UsersController < ApplicationController
   before_action :authenticate_user!
   before_action :verify_admin, only: [:index]
+  before_action :load_user, only: [:index, :trash, :send_payment_confirmation]
 
   def intro
   end
@@ -22,7 +23,6 @@ class UsersController < ApplicationController
   end
 
   def trash
-    @user = current_user
     @transactions = Transaction.only_deleted.where(user_id: @user.id)
   end
 
@@ -30,9 +30,7 @@ class UsersController < ApplicationController
   end
 
   def send_payment_confirmation
-    @user = current_user
     @transaction = Transaction.find(params[:id])
-
     respond_to do |format|
       @transaction.update_attributes(sent_confirmation: 1)
       UserMailer.payment_confirmation(@transaction).deliver_later
@@ -42,6 +40,9 @@ class UsersController < ApplicationController
   end
 
   private
+  def load_user
+    @user = current_user
+  end
 
   def verify_admin
     (current_user.nil?) ? redirect_to(user_url(current_user)) : (redirect_to(user_url(current_user), notice: 'Unauthorized')  unless current_user.admin?)

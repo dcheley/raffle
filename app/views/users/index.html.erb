@@ -1,5 +1,6 @@
 <div class="float">
   <div class="left-align-wrap" style="margin-bottom: 30px;">
+    <h2><%= link_to '(Export All)', user_url(@user, format: 'csv') %></h2>
     <h2>Coordinator Progress</h2><br/>
 
     <% @users.each do |u| %>
