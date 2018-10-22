@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
   before_action :authenticate_user!
   before_action :verify_admin, only: [:index]
-  before_action :load_user, only: [:index, :trash, :send_payment_confirmation]
+  before_action :load_user, only: [:show, :index, :trash, :send_payment_confirmation]
 
   def intro
   end
@@ -12,13 +12,13 @@ class UsersController < ApplicationController
   end
 
   def show
-    !current_user.admin? ? @user = current_user : @user = User.find(params[:id])
     @transaction = Transaction.new
-    @transactions = Transaction.all
+    @transactions = Transaction.where(user_id: current_user)
+    @csv_transactions = Transaction.all
     @tickets = @user.tickets
     respond_to do |format|
       format.html
-      format.csv { send_data @transactions.to_csv, filename: "#{@user.name}/OPS-Raffle/#{Date.today}.csv" }
+      format.csv { send_data @csv_transactions.to_csv, filename: "#{@user.name}/OPS-Raffle/#{Date.today}.csv" }
     end
   end
 
