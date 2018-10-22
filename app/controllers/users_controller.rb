@@ -14,7 +14,7 @@ class UsersController < ApplicationController
   def show
     !current_user.admin? ? @user = current_user : @user = User.find(params[:id])
     @transaction = Transaction.new
-    @transactions = @user.transactions
+    @transactions = Transaction.all
     @tickets = @user.tickets
     respond_to do |format|
       format.html
