@@ -125,11 +125,14 @@
     </p>
     <% if t.payment_check == 1 && t.sent_confirmation != 1 %>
       <div class="column">
-        <%= link_to "Send tickets to #{t.full_name}", controller: 'users', action: 'send_payment_confirmation', id: t.id %>
+        <%= link_to "Send tickets to #{t.full_name.titleize}", controller: 'users', action: 'send_payment_confirmation', id: t.id %>
       </div>
     <% elsif t.sent_confirmation == 1 %>
       <div class="column" style="color: green; font-weight: bold;">
-        <%= "Ticket confirmation email sent #{t.full_name}, please remind them to check their junkbox if email isn't found." %>
+        <%= "Ticket confirmation email sent #{t.full_name.titleize}, please remind them to check their junkbox if email isn't found." %>
+      </div>
+      <div class="column">
+        <%= link_to "Resend tickets", controller: 'users', action: 'send_payment_confirmation', id: t.id %>
       </div>
     <% end %>
     <div class="column">

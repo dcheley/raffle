@@ -41,7 +41,7 @@ class UsersController < ApplicationController
 
   private
   def load_user
-    @user = current_user
+    !params[:id].nil? ? @user = User.find(params[:id]) : @user = current_user
   end
 
   def verify_admin
