@@ -14,7 +14,7 @@ class UsersController < ApplicationController
 
   def show
     @transaction = Transaction.new
-    @transactions = Transaction.where(user_id: current_user)
+    @transactions = Transaction.where(user_id: @user)
     @csv_transactions = Transaction.all
     @tickets = @user.tickets
     respond_to do |format|
